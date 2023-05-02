@@ -1,5 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
+    margin: 0;
 }
 
 section {
@@ -31,10 +32,6 @@ ul {
     width: 600px;
     justify-content: space-around;
     font-size: 30px;
-}
-
-.menu-list {
-    color: #1c1d25;
 }
 
 li {
@@ -87,14 +84,12 @@ p {
 }
 
 .button:hover {
-    background-color: #ef744b;
-    
+    background-color: #ef744b; 
 }
 
 .button:active {
     background-color: #a9a9a9;
-    COLOR: #e7afac;
-    
+    COLOR: #e7afac;  
 }
 
 .logo {
@@ -120,13 +115,11 @@ p {
 .headshot {
     width: 350px;
     border-radius: 10px;
-
 }
 
 .headshot-container {
     display: flex;
     align-items: center;
-
 }
 
 .project-card {
@@ -139,6 +132,13 @@ p {
 .project-container {
     display: flex;
     justify-content: space-around;
+}
+
+@media only screen and (max-width: 1000px) {
+    .project-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .project-image {
