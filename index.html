@@ -1,80 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="src/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/761e4c8e5c.js" crossorgin="anonymus"></script>
-    <title>Howard Huang | Portfolio</title>
-    <meta charset="UTF-8" />
-  </head>
-  <body>
-        <section class="hero">
-            <nav>
-                <img class="logo" src="images/logo-2.png"/>
-                <ul>
-                    <li><a href="#about-me">About Me</a></li>
-                    <li><a href="#projects">Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-           </nav>
-           <div class="hero-area">
-            <div class="hero-text">
-                <h1> Howard Huang</h1>
-                <p> UI/UX designer & developer based in Waterloo, ON </p>
-                <div class="button"><a href="#about-me">About Me</a></div>
-            <div>
-          </div>
-      </section>
-      <section class="sub-section" id="about-me">
-          <div class="info"> 
-                <h2>About Me</h2>
-                <p> Hello! My name is Howard Huang.</p>
-                <p> I've been a designer & front end developer for over 2 years.</p>
-                <p> I'm currently studying Computer Science at the University of Wilfrid Laurier.</p>
-                <p> My recent work includes freelance designs, front-end development and my own startup Orbit.</p>
-          </div>
-          <div class="headshot-container"> 
-             <img class="headshot" src="images/myself.png">
-          </div>
-      </section>
-      <section class="sub-section-alt" id="projects">
-          <h2>Work</h2>
-          <div class="project-container">
-                <div class="project-card">
-                    <img class="project-image" src="images/orbitflips.png"/>
-                    <h3>Orbit Flips</h3>
-                    <p class="subtext"> A Web-3 Market Insights Group amassing over 650 members</p>
-                    <hr/>
-                    <p class="subtext"><a class="project-link"  href="https://twitter.com/OrbitFlips"> View Here </a></p>
-              </div>
-              <div class="project-card">
-                <img class="project-image" src="images/crossybeaver.png"/>
-                <h3>Crossy Beaver</h3>
-                <p class="subtext"> An arcade-style game made using the Pygame library.</p>
-                <hr/>
-                <p class="subtext"><a class="project-link"  href="https://github.com/quigt7936/ISC4U---Game"> View Here </a></p>
-              </div>
-              <div class="project-card">
-                <img class="project-image" src="images/mtwebdesign.jpg"/>
-                <h3>Moontoons</h3>
-                <p class="subtext">A Web-3 Project Landing Page</p>
-                <hr/>
-                <p class="subtext"><a class="project-link"  href="https://dribbble.com/shots/21274764-Moon-Toons-Landing-Page"> View Here </a></p>
-              </div>
-              <div class="project-card">
-                <img class="project-image" src="images/NPO Connect (1).png"/>
-                <h3>NPO Connect</h3>
-                <p class="subtext"> User Interface design for Non-profit Organization</p>
-                <hr/>
-                <p class="subtext"><a class="project-link"  href="https://dribbble.com/shots/21274831-NPO-Connect-Interface"> View Here</a></p>
-          </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Howard Huang</div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      </section>
-      <footer id="contact">
-        <h2>Contact Me</h2>
-        <p>howardh0620@gmail.com</p>
-      </footer>
+    <section class="hero">
+        <h1>Hi, I'm <span class="highlight">Howard</span>, and I am a <span class="highlight">UI/UX </span>designer and front-end developer.</h1>
+        <div class="icons">
+            <a href="https://www.linkedin.com/in/howard-huang0620/" target="_blank"><img src="images/linkedin.png" alt="Linkedin"></a>
+            <a href="https://dribbble.com/ProximityVFX" target="_blank"><img src="images/dribble.png" alt="Dribble"></a>
+        </div>
+        <a href="mailto:howardh0620@gmail.com.com" class="btn">Contact Me</a>
+    </section>
 
-  <script src="src/app.js"></script>
- </body>
+    <section id="about">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>
+            I am a Computer Science student at Wilfrid Laurier University. I am a passionate UI/UX Designer and web developer. My interest includes cars, designing, and trading.
+          </p>
+        </div>
+      </section>
+      
+    
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card"><img src="images/python.png" alt="Python"><p>Python</p></div>
+            <div class="skill-card"><img src="images/java.png" alt="Java"><p>Java</p></div>
+            <div class="skill-card"><img src="images/html.png" alt="HTML"><p>HTML</p></div>
+            <div class="skill-card"><img src="images/CSS.png" alt="CSS"><p>CSS</p></div>
+            <div class="skill-card"><img src="images/ms-excel.png" alt="Excel"><p>Excel</p></div>
+            <div class="skill-card"><img src="images/figma.png" alt="Figma"><p>Figma</p></div>
+            <div class="skill-card"><img src="images/photoshop.png" alt="Adobe Photoshop"><p>Photoshop</p></div>
+            <div class="skill-card"><img src="images/image-removebg-preview (6).png" alt="Adobe XD"><p>Adobe XD</p></div>
+            <div class="skill-card"><img src="images/adobe-after-effects.png" alt="After Effects"><p>After Effects</p></div>
+            <div class="skill-card"><img src="images/github.png" alt="GitHub"><p>GitHub</p></div>
+            <div class="skill-card"><img src="images/sql.png" alt="SQL"><p>SQL</p></div>
+            <div class="skill-card"><img src="images/vba.png" alt="VBA"><p>VBA</p></div>
+        </div>
+    </section>
+    
+    
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="images/ttt.png" alt="Tic-Tac-Toe">
+                <h3>Tic-Tac-Toe <span class="project-tools">| Adobe Photoshop | Python</span></h3>
+                <p>AI-powered tic-tac-toe game built with Python usign Gemini API and Minimax Algorithim. Designed with vibrant visuals for an engaging experience.</p>
+                <a href="#">View Here</a>
+            </div>
+            <div class="project-card">
+                <img src="images/npo-connect.png" alt="NPO Connect">
+                <h3>NPO Connect <span class="project-tools">| Adobe Photoshop | Figma</span></h3>
+                <p>A comprehensive UI/UX dashboard created for non-profit organizations to manage donors, events, and internal communication efficiently.</p>
+                <a href="#">View Here</a>
+            </div>
+            <div class="project-card">
+                <img src="images/orbitflips.png" alt="Orbit Flips">
+                <h3>Orbit Flips <span class="project-tools">| Discord | Web-3</span></h3>
+                <p>A Web3 insights community providing real-time information, trends, and analysis for over 650+ members in the crypto and NFT space.</p>
+                <a href="#">View Here</a>
+            </div>
+            <div class="project-card">
+                <img src="images/proximity.png" alt="Proximity Visuals">
+                <h3>Proximity Visuals<span class="project-tools">| Freelance</h3>
+                <p>Freelance graphics designs through Figma, Adobe Photoshop and etc</p>
+                <a href="#">View Here</a>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    <footer>
+        <p>&copy; 2025 Howard Huang | All Rights Reserved</p>
+    </footer>
+
+
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const dots = document.querySelectorAll('.dot');
+        const images = document.querySelectorAll('.carousel-image');
+      
+        function moveToSlide(index) {
+          const offset = images[0].offsetWidth + 20; // image width + gap
+          track.scrollLeft = index * offset;
+      
+          dots.forEach(dot => dot.classList.remove('active'));
+          dots[index].classList.add('active');
+        }
+      
+        // Optional: Resize awareness
+        window.addEventListener('resize', () => moveToSlide([...dots].findIndex(dot => dot.classList.contains('active'))));
+      </script>
+      
+  
+    
+</body>
 </html>
