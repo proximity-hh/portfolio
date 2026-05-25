@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>howard-portfolio-replica</title>
+  <meta name="description" content="A soft editorial portfolio homepage inspired by the attached reference design." />
+  <meta property="og:title" content="Howard Huang Portfolio Replica" />
+  <meta property="og:description" content="Minimal editorial portfolio website recreation with warm neutral surfaces and refined typography." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2.5rem, 1.6rem + 3vw, 4.75rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #f6f2ea;
+      --color-surface: #fbf8f3;
+      --color-surface-2: #f7f1ea;
+      --color-surface-offset: #efe7de;
+      --color-border: rgba(54, 42, 31, 0.12);
+      --color-text: #2c2018;
+      --color-text-muted: #736458;
+      --color-text-faint: #9c8c7d;
+      --color-primary: #8b4024;
+      --color-primary-hover: #6d311a;
+      --shadow-sm: 0 1px 2px rgba(64, 45, 31, 0.08), 0 10px 24px rgba(64, 45, 31, 0.04);
+      --shadow-md: 0 1px 2px rgba(64, 45, 31, 0.08), 0 18px 40px rgba(64, 45, 31, 0.08);
+      --radius-sm: 0.5rem; --radius-md: 0.9rem; --radius-lg: 1.15rem; --radius-xl: 1.8rem; --radius-full: 999px;
+      --content: 1040px;
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'Manrope', system-ui, sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg: #171411;
+      --color-surface: #211d19;
+      --color-surface-2: #27211c;
+      --color-surface-offset: #312922;
+      --color-border: rgba(255, 245, 235, 0.12);
+      --color-text: #f3ede5;
+      --color-text-muted: #d3c5b8;
+      --color-text-faint: #a59689;
+      --color-primary: #cf7c59;
+      --color-primary-hover: #dea287;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.22), 0 10px 24px rgba(0,0,0,.16);
+      --shadow-md: 0 1px 2px rgba(0,0,0,.24), 0 18px 40px rgba(0,0,0,.24);
+    }
+    *,:before,:after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-padding-top:5rem}
+    body{font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;background:var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .skip-link{position:absolute;left:1rem;top:-3rem;background:var(--color-text);color:var(--color-bg);padding:.75rem 1rem;border-radius:var(--radius-full);z-index:100}
+    .skip-link:focus{top:1rem}
+    .container{width:min(calc(100% - 2rem),var(--content));margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(246,242,234,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(54,42,31,.05)}
+    [data-theme="dark"] .site-header{background:rgba(23,20,17,.8);border-bottom-color:rgba(255,245,235,.05)}
+    .header-inner{min-height:4rem;display:flex;align-items:center;justify-content:space-between;gap:var(--space-4)}
+    .brand{display:inline-flex;align-items:center;color:var(--color-text);min-width:44px;min-height:44px}
+    .brand svg{width:32px;height:18px}
+    .nav{display:flex;align-items:center;gap:clamp(.85rem,2vw,1.5rem);font-size:var(--text-xs);color:var(--color-text-muted)}
+    .nav a{min-height:44px;display:inline-flex;align-items:center}
+    .header-tools{display:flex;align-items:center;gap:.5rem}
+    .icon-btn{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--color-border);border-radius:var(--radius-full);background:rgba(255,255,255,.35)}
+    [data-theme="dark"] .icon-btn{background:rgba(255,255,255,.02)}
+
+    .hero{position:relative;overflow:hidden;padding:clamp(5rem,10vw,8rem) 0 clamp(4.5rem,8vw,7rem)}
+    .hero-orbit{position:absolute;border-radius:50%;filter:blur(14px);pointer-events:none;opacity:.75;animation:floatOrb 9s ease-in-out infinite}
+    .hero-orbit.orbit-left{width:min(38vw,28rem);aspect-ratio:1;left:-8rem;top:4rem;background:radial-gradient(circle, rgba(180,153,129,.22), transparent 65%)}
+    .hero-orbit.orbit-right{width:min(36vw,24rem);aspect-ratio:1;right:-6rem;bottom:1rem;background:radial-gradient(circle, rgba(214,173,140,.22), transparent 65%);animation-duration:11s;animation-delay:-2s}
+    .hero-panel{max-width:38rem;margin:0 auto;padding:var(--space-6) var(--space-4);text-align:center;position:relative;background:none !important;border:0 !important;box-shadow:none !important;border-radius:0 !important;backdrop-filter:none !important;animation:heroPanelIn 1.05s cubic-bezier(.16,1,.3,1), heroPanelFloat 7s ease-in-out 1.1s infinite}
+    .hero-panel:before{display:none}
+    [data-theme="dark"] .hero-panel{background:none;box-shadow:none}
+    .availability{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .8rem;border-radius:var(--radius-full);background:rgba(255,255,255,.75);border:1px solid rgba(54,42,31,.08);font-size:var(--text-xs);color:var(--color-text-muted)}
+    [data-theme="dark"] .availability{background:rgba(255,255,255,.05)}
+    .hero h1{margin-top:var(--space-5);font-family:var(--font-display);font-size:var(--text-2xl);line-height:.98;letter-spacing:-.04em;font-weight:400}
+    .hero .subtitle{margin-top:.75rem;color:var(--color-text-muted);font-size:var(--text-sm);font-style:italic}
+    .hero .location{margin-top:.35rem;font-size:var(--text-xs);color:var(--color-text-faint)}
+    .social-row{margin-top:var(--space-6);display:flex;justify-content:center;gap:.65rem;flex-wrap:wrap}
+    .social-link{width:44px;height:44px;border-radius:var(--radius-full);display:grid;place-items:center;border:1px solid var(--color-border);background:rgba(255,255,255,.5);box-shadow:var(--shadow-sm)}
+    [data-theme="dark"] .social-link{background:rgba(255,255,255,.03)}
+    .scroll-label{margin-top:var(--space-6);font-size:var(--text-xs);letter-spacing:.24em;color:var(--color-text-faint)}
+
+    .section{padding:clamp(2.75rem,6vw,5rem) 0}
+    .section-kicker{font-size:var(--text-xs);letter-spacing:.24em;text-transform:uppercase;color:var(--color-text-faint);margin-bottom:.35rem}
+    .section-title{font-family:var(--font-display);font-size:var(--text-xl);font-weight:400;line-height:1.05;margin-bottom:var(--space-5)}
+    .stack{display:grid;gap:var(--space-4)}
+    .experience-stack{gap:1rem}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.5), rgba(255,255,255,.28));border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);transition:transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s cubic-bezier(.16,1,.3,1), border-color .45s ease, background .45s ease;transform-origin:center}
+    .card:hover{transform:translateY(-6px) scale(1.01);box-shadow:var(--shadow-md);border-color:rgba(139,64,36,.22)}
+    [data-theme="dark"] .card:hover{border-color:rgba(207,124,89,.28)}
+    [data-theme="dark"] .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02))}
+    .experience-item{padding:0;overflow:hidden}
+    .experience-item[open]{box-shadow:var(--shadow-md)}
+    .experience-summary{list-style:none;display:grid;grid-template-columns:auto 1fr;gap:1.1rem;align-items:center;padding:1.2rem 1.35rem;cursor:pointer;min-height:6.3rem}
+    .experience-summary::-webkit-details-marker{display:none}
+    .experience-copy{display:grid;gap:.3rem;min-width:0}
+    .experience-heading-row{display:flex;justify-content:space-between;align-items:start;gap:1rem}
+    .inline-sub{display:inline-flex;align-items:center;gap:.35rem;margin-top:.18rem}
+    .experience-meta-row{display:flex;flex-wrap:wrap;gap:1rem 1.25rem;align-items:center}
+    .chev{display:inline-block;transition:transform .28s ease;color:var(--color-text-faint)}
+    .experience-item[open] .chev{transform:rotate(180deg)}
+    .experience-panel{padding:0 1.35rem 1.1rem 5.15rem;border-top:1px solid rgba(54,42,31,.06)}
+    [data-theme="dark"] .experience-panel{border-top-color:rgba(255,245,235,.06)}
+    .monogram{width:2.7rem;height:2.7rem;border-radius:.95rem;background:var(--color-surface-offset);display:grid;place-items:center;font-size:var(--text-xs);font-weight:700;color:var(--color-text-muted);overflow:hidden}
+    .company-logo{width:100%;height:100%;object-fit:contain}
+    .entry-title{font-size:1rem;font-weight:700}
+    .entry-meta,.entry-sub{font-size:var(--text-xs);color:var(--color-text-muted)}
+    .entry-sub{margin-top:.15rem}
+    .entry-points{margin-top:.55rem;padding-left:.9rem;display:grid;gap:.25rem;color:var(--color-text-muted);font-size:var(--text-sm);line-height:1.55}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+    .project-media{position:relative;aspect-ratio:16/9;border-radius:calc(var(--radius-lg) - .35rem);overflow:hidden;background:#000;border:none}
+    .project-media img,.project-image{width:100%;height:100%;display:block;object-fit:cover}
+    [data-theme="dark"] .project-media{background:#000;border-color:rgba(255,245,235,.08)}
+    .project-head{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start}
+    .project-name{font-weight:700;font-size:1rem}
+    .project-date{font-size:var(--text-xs);color:var(--color-text-faint)}
+    .project-tech{font-size:var(--text-xs);color:var(--color-text-muted)}
+    .project-desc{font-size:var(--text-sm);color:var(--color-text-muted);margin-bottom:.2rem}
+    .project-points{margin-top:.35rem;padding-left:.9rem;display:grid;gap:.18rem;color:var(--color-text-muted);font-size:var(--text-sm);line-height:1.55}
+    .project-card{padding:1rem;display:flex;flex-direction:column;gap:.6rem;min-height:14rem}
+    .project-actions{margin-top:auto;display:flex;justify-content:flex-end;flex-wrap:wrap;gap:.6rem}
+    .project-link{font-size:var(--text-xs);color:var(--color-text);display:inline-flex;gap:.35rem;align-items:center}
+
+    .education-card{padding:var(--space-4)}
+    .education-main{display:grid;grid-template-columns:auto 1fr;gap:var(--space-4);align-items:start}
+    .coursework{margin-top:var(--space-5)}
+    .chips{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.75rem}
+    .chip{padding:.45rem .75rem;border-radius:var(--radius-full);background:var(--color-surface-offset);border:1px solid rgba(54,42,31,.08);font-size:var(--text-xs);color:var(--color-text-muted)}
+    .contact-wrap{padding-top:clamp(4rem,7vw,6rem);padding-bottom:clamp(4rem,8vw,7rem)}
+    .contact-card{width:min(100%,31rem);margin:0 auto;padding:clamp(2rem,5vw,3.5rem);text-align:center;border-radius:2rem;background:linear-gradient(135deg, rgba(255,255,255,.48), rgba(255,255,255,.75) 50%, rgba(255,240,228,.52));border:1px solid var(--color-border);box-shadow:var(--shadow-md)}
+    [data-theme="dark"] .contact-card{background:linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.07) 50%, rgba(255,220,196,.03))}
+    .contact-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.4rem);line-height:1.02;font-weight:400;margin-top:.5rem}
+    .contact-text{color:var(--color-text-muted);max-width:28ch;margin:1rem auto 0}
+    .email-btn{margin-top:var(--space-6);display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 1.2rem;border-radius:var(--radius-full);background:var(--color-primary);color:#fff;box-shadow:var(--shadow-sm)}
+    .email-btn:hover{background:var(--color-primary-hover)}
+
+    .demo-modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;font-size:var(--text-base)}
+    .demo-modal[hidden]{display:none}
+    .demo-backdrop{position:absolute;inset:0;background:rgba(12,8,4,.6);backdrop-filter:blur(10px)}
+    .demo-dialog{position:relative;z-index:1;width:min(960px,100% - 2.5rem);border-radius:1.5rem;background:var(--color-surface);box-shadow:var(--shadow-md);padding:1.25rem 1.25rem 1.35rem}
+    .demo-shell{border-radius:1.1rem;overflow:hidden;background:#000}
+    .demo-video{width:100%;height:auto;display:block}
+    .demo-close{position:absolute;top:.75rem;right:.9rem;width:32px;height:32px;border-radius:999px;border:1px solid var(--color-border);background:rgba(255,255,255,.6)}
+    [data-theme="dark"] .demo-dialog{background:#151110}
+
+    footer{padding:0 0 var(--space-16);text-align:center;font-size:var(--text-xs);color:var(--color-text-faint)}
+
+    @keyframes heroPanelIn{0%{opacity:0;transform:translateY(32px) scale(.975)}100%{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes heroPanelFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes floatOrb{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,-14px,0) scale(1.04)}}
+    @keyframes cardIn{0%{opacity:0;transform:translateY(26px) scale(.985)}100%{opacity:1;transform:translateY(0) scale(1)}}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .card.reveal.visible{animation:cardIn .72s cubic-bezier(.16,1,.3,1) both}
+
+    @media (max-width: 860px){
+      .nav{display:none}
+      .projects-grid{grid-template-columns:1fr}
+      .hero-panel{padding:var(--space-6) var(--space-4)}
+      .site-header .header-inner{min-height:3.85rem}
+    }
+    @media (max-width: 560px){
+      .container{width:min(calc(100% - 1rem),var(--content))}
+      .hero{padding-top:4.5rem}
+      .education-main,.experience-summary{grid-template-columns:1fr}
+      .project-head,.experience-meta-row{flex-direction:column;gap:.25rem;align-items:flex-start}
+      .experience-summary{padding:1rem}
+      .experience-panel{padding:0 1rem 1rem 1rem}
+      .contact-card{border-radius:1.6rem}
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      .reveal,.card,.hero-panel,.hero-orbit,.hero-panel:before{opacity:1;transform:none;transition:none;animation:none}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Howard Huang home">
+        <svg viewBox="0 0 90 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 12v24M28 12v24M12 24h16" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M44 12v24M60 12v24M44 24h16" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+          <path d="M76 12v24" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#top">Home</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-tools">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="top">
+      <div class="hero-orbit orbit-left" aria-hidden="true"></div>
+      <div class="hero-orbit orbit-right" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-panel reveal">
+          <div class="availability">
+            <span aria-hidden="true">✦</span>
+            <span>Available For Work Fall 2026</span>
+          </div>
+          <h1>Howard Huang</h1>
+          <p class="subtitle">CS undergraduate, UI/UX Designer/Front-End Developer</p>
+          <p class="location">Cambridge, ON</p>
+          <div class="social-row" aria-label="Social links">
+            <a class="social-link" href="mailto:howardh0620@gmail.com" aria-label="Email Howard"><span>✉</span></a>
+            <a class="social-link" href="https://www.linkedin.com/in/howard-huang0620/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span>in</span></a>
+            <a class="social-link" href="https://dribbble.com/ProximityVFX" target="_blank" rel="noopener noreferrer" aria-label="Portfolio"><span>◌</span></a>
+            <a class="social-link" href="#" aria-label="Resume" data-resume-trigger><span>▣</span></a>
+          </div>
+          <div class="scroll-label">SCROLL</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <p class="section-kicker">Work</p>
+        <h2 class="section-title reveal">Experience</h2>
+        <div class="stack experience-stack">
+          <details class="card experience-item reveal" name="experience-list">
+            <summary class="experience-summary">
+              <span class="monogram">
+                <img src="specsavers.png" alt="Specsavers" class="company-logo">
+              </span>
+              <span class="experience-copy">
+                <span class="experience-heading-row">
+                  <span>
+                    <span class="entry-title">Eyecare Consultant</span>
+                    <span class="entry-sub inline-sub">Specsavers <span class="chev">⌄</span></span>
+                  </span>
+                </span>
+                <span class="experience-meta-row">
+                  <span class="entry-meta">Cambridge, ON</span>
+                  <span class="entry-meta">May 2023 — Present</span>
+                  <a class="project-link" href="https://www.specsavers.ca/" target="_blank" rel="noopener noreferrer">View profile ↗</a>
+                </span>
+              </span>
+            </summary>
+            <div class="experience-panel">
+              <ul class="entry-points">
+                <li>Perform pretests for eye exams using OCT, Tonoref, and Lensmeter.</li>
+                <li>Process insurance claims, co-payments, and out-of-pocket payments.</li>
+                <li>Handle calls, emails, faxes, and appointment scheduling.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="card experience-item reveal" name="experience-list">
+            <summary class="experience-summary">
+              <span class="monogram">
+                <img src="illuminateuniverse.jpg" alt="Illuminate Universe" class="company-logo">
+              </span>
+              <span class="experience-copy">
+                <span class="experience-heading-row">
+                  <span>
+                    <span class="entry-title">Project Intern</span>
+                    <span class="entry-sub inline-sub">Illuminate <span class="chev">⌄</span></span>
+                  </span>
+                </span>
+                <span class="experience-meta-row">
+                  <span class="entry-meta">Cambridge, ON · Remote</span>
+                  <span class="entry-meta">Jun 2023 — Aug 2023</span>
+                  <a class="project-link" href="https://illuminateuniverse.com" target="_blank" rel="noopener noreferrer">View profile ↗</a>
+                </span>
+              </span>
+            </summary>
+            <div class="experience-panel">
+              <ul class="entry-points">
+                <li>Supported organization and coordination of leadership events and workshops.</li>
+                <li>Assisted with curriculum structure aligned to Illuminate program goals.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="card experience-item reveal" name="experience-list">
+            <summary class="experience-summary">
+              <span class="monogram">
+                <img src="orbit.jpg" alt="Orbit" class="company-logo">
+              </span>
+              <span class="experience-copy">
+                <span class="experience-heading-row">
+                  <span>
+                    <span class="entry-title">Co-Founder</span>
+                    <span class="entry-sub inline-sub">Orbit <span class="chev">⌄</span></span>
+                  </span>
+                </span>
+                <span class="experience-meta-row">
+                  <span class="entry-meta">Toronto, ON · Remote</span>
+                  <span class="entry-meta">Aug 2021 — Jun 2022</span>
+                  <a class="project-link" href="https://twitter.com/orbitflips" target="_blank" rel="noopener noreferrer">View profile ↗</a>
+                </span>
+              </span>
+            </summary>
+            <div class="experience-panel">
+              <ul class="entry-points">
+                <li>Built an online community focused on Web3 education and insights.</li>
+                <li>Reached 600+ members and over $500k in profits within four months.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="section-kicker">Selected Work</p>
+        <h2 class="section-title reveal">Projects</h2>
+        <div class="projects-grid">
+          <article class="card project-card reveal">
+            <div class="project-media">
+              <img src="npoconnect.png" alt="Prop Assist interface" class="project-image">
+            </div>
+            <div class="project-head"><h3 class="project-name">Prop Assist</h3><p class="project-date">January 2026</p></div>
+            <p class="project-tech">Python · JavaScript · Odds API</p>
+            <p class="project-desc">Full-stack tool ingesting live NBA odds to surface +EV and arbitrage opportunities.</p>
+            <ul class="project-points">
+              <li>Live +EV signals and Arbitrage Sccanner.</li>
+              <li>Sportsbook comparison UI.</li>
+            </ul>
+            <div class="project-actions">
+              <button class="project-link" type="button" data-demo="prop-assist">View demo <span aria-hidden="true">▶</span></button>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-media">
+              <img src="ttt.png" alt="Tic-Tac-Toe game screens" class="project-image">
+            </div>
+            <div class="project-head"><h3 class="project-name">Tic-Tac-Toe</h3><p class="project-date">March 2025</p></div>
+            <p class="project-tech">Python · Pygame · Gemini API</p>
+            <p class="project-desc">Tictactoe Game using Minimax Algorithm with Alpha Beta Pruning and Gemini API.</p>
+            <ul class="project-points">
+              <li>Simulate match between Minimax Algorithim against Gemini API</li>
+              <li>Play Against Minimax Algorithim or Gemini AI</li>
+            </ul>
+            <div class="project-actions">
+              <button class="project-link" type="button" data-demo="tic-tac-toe">View demo <span aria-hidden="true">▶</span></button>
+              <a class="project-link" href="https://github.com/Ned-Malki/Cp468-Project" target="_blank" rel="noopener noreferrer">View GitHub <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-media">
+              <img src="npoconnect.png" alt="NPO Connect UI screens" class="project-image">
+            </div>
+            <div class="project-head"><h3 class="project-name">NPO Connect — UI</h3><p class="project-date">February 2023</p></div>
+            <p class="project-tech">Figma · Adobe Photoshop</p>
+            <p class="project-desc">User interface for a platform connecting nonprofits with stakeholders through a calmer, editorial layout.</p>
+            <ul class="project-points">
+              <li>Nonprofit platform UI.</li>
+              <li>Research-driven UX.</li>
+            </ul>
+            <div class="project-actions">
+             <button class="project-link" type="button" data-case-study="npo-connect"> View case study <span aria-hidden="true">📄</span> </button>
+</div>
+
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-media">
+              <img src="proximity.png" alt="Proximity Visuals branding" class="project-image">
+            </div>
+            <div class="project-head"><h3 class="project-name">Proximity Visuals</h3><p class="project-date">Aug 2021 — Present</p></div>
+            <p class="project-tech">After Effects · Photoshop · Figma</p>
+            <p class="project-desc">Freelance VFX, motion graphics, and GFX work for creators across gaming and esports.</p>
+            <ul class="project-points">
+              <li>Motion and promo visuals.</li>
+              <li>Brand-aligned delivery.</li>
+            </ul>
+            <div class="project-actions">
+              <a class="project-link" href="https://dribbble.com/ProximityVFX" target="_blank" rel="noopener noreferrer">View Dribbble <span aria-hidden="true">↗</span> </a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container">
+        <p class="section-kicker">School</p>
+        <h2 class="section-title reveal">Education</h2>
+        <article class="card education-card reveal">
+          <div class="education-main">
+            <div class="monogram">
+                <img src="laurier.jpg" alt="Laurier branding" class="company-logo">
+              </div>
+            <div>
+              <div class="experience-heading-row">
+                <div>
+                  <h3 class="entry-title">Honours Bachelor of Science in Computer Science</h3>
+                  <p class="entry-sub">Wilfrid Laurier University</p>
+                </div>
+                <p class="entry-meta">2022 — 2026</p>
+              </div>
+              <p class="entry-meta">Waterloo, ON · Dean's Honour Roll (2023)</p>
+              <div class="coursework">
+                <p class="section-kicker" style="margin-bottom:0;letter-spacing:.18em;">Relevant Coursework</p>
+                <div class="chips">
+                  <span class="chip">Data Structures</span>
+                  <span class="chip">Algorithm Analysis</span>
+                  <span class="chip">Object-Oriented Programming</span>
+                  <span class="chip">Operating Systems</span>
+                  <span class="chip">Relational Database Management Systems</span>
+                  <span class="chip">Computer Networks</span>
+                  <span class="chip">Computer Graphics</span>
+                  <span class="chip">Artificial Intelligence</span>
+                  <span class="chip">Software Engineering</span>
+                  <span class="chip">Digital Electronics</span>
+                  <span class="chip">UX Strategy</span>
+                  <span class="chip">Project Management</span>
+                  <span class="chip">Big Data Programming</span>
+                  <span class="chip">Windows Systems Programming</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Certifications section -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <p class="section-kicker">Certificates</p>
+        <h2 class="section-title reveal">Certifications</h2>
+        <div class="stack">
+          <article class="card education-card reveal">
+            <div class="education-main">
+              <div class="monogram">
+                <img src="udemy.png" alt="Udemy branding" class="company-logo">
+              </div>
+              <div>
+                <div class="experience-heading-row">
+                  <div>
+                    <h3 class="entry-title">Complete Web & Mobile Designer: UI/UX, Figma, HTML, CSS </h3>
+                    <p class="entry-sub">Udemy</p>
+                  </div>
+                  <p class="entry-meta">Issued Jan 2021</p>
+                </div>
+                <p class="entry-meta">Design everything in Figma & code it using HTML CSS JavaScript</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-wrap" id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <p class="section-kicker" style="margin-bottom:0">Contact</p>
+          <h2 class="contact-title">Let's build something</h2>
+          <p class="contact-text">Open to Projects, contract work, and good conversations about softwareand designs.</p>
+          <a class="email-btn" href="mailto:howardh0620@gmail.com">howardh0620@gmail.com <span aria-hidden="true">↗</span></a>
+          <div class="social-row" style="margin-top:2rem;">
+            <a class="social-link" href="mailto:howardh0620@gmail.com" aria-label="Email Howard"><span>✉</span></a>
+            <a class="social-link" href="https://www.linkedin.com/in/howard-huang0620/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span>in</span></a>
+            <a class="social-link" href="https://dribbble.com/ProximityVFX" target="_blank" rel="noopener noreferrer" aria-label="Website"><span>◌</span></a>
+            <a class="social-link" href="#top" aria-label="Back to top"><span>▣</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Resume modal -->
+  <div class="demo-modal" data-resume-modal hidden>
+    <div class="demo-backdrop" data-resume-close></div>
+    <div class="demo-dialog">
+      <button class="demo-close" type="button" data-resume-close aria-label="Close resume">×</button>
+      <div class="demo-shell" style="background:var(--color-surface);padding:1.25rem 1.4rem;">
+        <iframe class="resume-frame" src="Howard Huang Resume 2026.pdf#zoom=67"Resume" style="width:100%;height:70vh;border:0;border-radius:1rem;background:#fff;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case study modal -->
+  <div class="demo-modal" data-case-modal hidden>
+    <div class="demo-backdrop" data-case-close></div>
+    <div class="demo-dialog">
+      <button class="demo-close" type="button" data-case-close aria-label="Close case study">×</button>
+      <div class="demo-shell" style="background:var(--color-surface);padding:1.25rem 1.4rem;">
+        <iframe class="case-frame" src="NPO-Connect-Case-Study.pdf#zoom=500"title="NPO Connect Case Study" style="width:100%;height:70vh;border:0;border-radius:1rem;background:#fff;"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo video modal -->
+  <div class="demo-modal" data-demo-modal hidden>
+    <div class="demo-backdrop" data-demo-close></div>
+    <div class="demo-dialog">
+      <button class="demo-close" type="button" data-demo-close aria-label="Close demo">×</button>
+      <div class="demo-shell">
+        <video class="demo-video" controls preload="metadata" playsinline>
+          <source src="prop-assist-demo.mp4" type="video/mp4" data-demo-source="prop-assist">
+          <source src="tic-tac-toe-demo.mp4" type="video/mp4" data-demo-source="tic-tac-toe">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2026 Made By Howard Huang With Love </footer>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      function icon(mode){
+        return mode === 'dark'
+          ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.5"></circle><path d="M12 2v2.2M12 19.8V22M4.93 4.93l1.56 1.56M17.51 17.51l1.56 1.56M2 12h2.2M19.8 12H22M4.93 19.07l1.56-1.56M17.51 6.49l1.56-1.56"></path></svg>'
+          : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+      }
+      if(toggle){
+        toggle.innerHTML = icon(theme);
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.addEventListener('click', () => {
+          theme = theme === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', theme);
+          toggle.innerHTML = icon(theme);
+          toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        });
+      }
+
+      const demoModal = document.querySelector("[data-demo-modal]");
+      const demoVideo = demoModal ? demoModal.querySelector(".demo-video") : null;
+      const demoButtons = document.querySelectorAll("[data-demo]");
+      const demoSources = demoVideo ? Array.from(demoVideo.querySelectorAll("source")) : [];
+
+      function openDemo(id){
+        if(!demoModal || !demoVideo) return;
+        demoSources.forEach(src => {
+          const match = src.getAttribute("data-demo-source") === id;
+          src.toggleAttribute("disabled", !match);
+        });
+        demoVideo.load();
+        demoModal.removeAttribute("hidden");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeDemo(){
+        if(!demoModal || !demoVideo) return;
+        demoModal.setAttribute("hidden", "hidden");
+        demoVideo.pause();
+        document.body.style.overflow = "";
+      }
+
+      demoButtons.forEach(btn =>
+        btn.addEventListener("click", () => openDemo(btn.getAttribute("data-demo")))
+      );
+
+      if(demoModal){
+        demoModal.addEventListener("click", e => {
+          if(e.target.hasAttribute("data-demo-close")) closeDemo();
+        });
+      }
+
+      function closeResume(){
+        const modal = document.querySelector("[data-resume-modal]");
+        if(!modal) return;
+        modal.setAttribute("hidden","hidden");
+        document.body.style.overflow = "";
+      }
+
+      const resumeTrigger = document.querySelector("[data-resume-trigger]");
+      if(resumeTrigger){
+        resumeTrigger.addEventListener("click", (e) => {
+          e.preventDefault();
+          const modal = document.querySelector("[data-resume-modal]");
+          if(!modal) return;
+          modal.removeAttribute("hidden");
+          document.body.style.overflow = "hidden";
+        });
+      }
+
+      // case study modal
+      const caseModal = document.querySelector('[data-case-modal]');
+      const caseFrame = caseModal ? caseModal.querySelector('.case-frame') : null;
+      const caseButton = document.querySelector('[data-case-study=\'npo-connect\']');
+      function openCase(){
+        if(!caseModal || !caseFrame) return;
+        caseModal.removeAttribute('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeCase(){
+        if(!caseModal) return;
+        caseModal.setAttribute('hidden','hidden');
+        document.body.style.overflow = '';
+      }
+      if(caseButton){
+        caseButton.addEventListener('click', openCase);
+      }
+      if(caseModal){
+        caseModal.addEventListener('click', e => {
+          if(e.target.hasAttribute('data-case-close')) closeCase();
+        });
+      }
+
+      window.addEventListener("keydown", e => {
+        if(e.key === "Escape") {
+          closeDemo();
+          closeResume();
+          closeCase();
+        }
+      });
+
+      const resumeModal = document.querySelector("[data-resume-modal]");
+      if(resumeModal){
+        resumeModal.addEventListener("click", e => {
+          if(e.target.hasAttribute("data-resume-close")) closeResume();
+        });
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      }, { threshold: 0.16 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
