@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Howard Huang — design &amp; development</title>
+<meta name="description" content="Howard Huang — Computer Science student at Wilfrid Laurier working where engineering and design overlap. Selected UX and full-stack work.">
+<script>try{if(sessionStorage.getItem('batwipe')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('bat-in')}catch(e){}</script>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Howard Huang</a>
+    <nav class="nav">
+      <a href="index.html" aria-current="page">Work</a>
+      <a href="about.html">About</a>
+      <a class="bat-toggle" href="batcave.html" data-bat><i class="bat" aria-hidden="true"></i>Batcave</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="wrap board" id="board">
+
+    <svg class="threads" preserveAspectRatio="none" aria-hidden="true">
+      <path d="" />
+    </svg>
+
+    <div class="board-rail">
+      <span>Case file 001 &mdash; H. Huang</span>
+      <span class="rail-live"><i></i> Status: active</span>
+    </div>
+
+    <div class="board-grid">
+
+      <article class="pin-card c-dossier" style="--i:1">
+        <span class="pin"></span>
+        <span class="label">Subject</span>
+        <h1 class="cjk" lang="zh-Hant" title="Howard Huang">黃翔晧</h1>
+        <p>A designer who builds &mdash; and a developer who keeps wandering
+           over to the design side of the room.</p>
+        <dl class="facts">
+          <div><dt>Practice</dt><dd>UX / UI &middot; full&#8209;stack</dd></div>
+          <div><dt>Last seen</dt><dd>Waterloo, ON</dd></div>
+          <div><dt>Reading</dt><dd>CS, Wilfrid Laurier &rsquo;26</dd></div>
+        </dl>
+      </article>
+
+      <article class="pin-card c-plate" style="--i:2">
+        <span class="pin"></span>
+        <a class="plate-art" href="batcave.html" data-bat>
+          <i class="bat" aria-hidden="true"></i>
+          <span class="plate-go">Enter the cave &rarr;</span>
+        </a>
+        <span class="plate-cap">Exhibit A &mdash; the other front door</span>
+      </article>
+
+      <article class="pin-card c-now" style="--i:3">
+        <span class="pin"></span>
+        <span class="label">Last known activity</span>
+        <p class="now-line">Building <b>@Propr</b></p>
+        <span class="live"><i></i> Open to UX / UI roles for 2026</span>
+      </article>
+
+      <article class="pin-card c-methods" style="--i:4">
+        <span class="pin"></span>
+        <span class="label">Known methods</span>
+        <ul>
+          <li>User research</li>
+          <li>Wireframing</li>
+          <li>Usability testing</li>
+          <li>UI design</li>
+          <li>Design systems</li>
+          <li>Full-stack builds</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <span class="stamp" aria-hidden="true">Case open</span>
+  </div>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 class="sec-title">Selected work</h2>
+      </div>
+
+      <div class="cards">
+
+        <a class="card feature" href="npo-connect.html">
+          <span class="cover cover-swap cover-npo">
+            <img src="assets/work/npo-connect-cover.jpg" alt="NPO Connect" loading="lazy">
+            <video src="assets/work/npo-connect-flow.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
+          </span>
+          <span class="body">
+            <span class="meta"><span>Case study</span> &middot; <span>2024</span></span>
+            <h3>NPO Connect</h3>
+            <p>Nonprofits run on scattered spreadsheets and email threads. One workspace
+               instead &mdash; tested with three volunteers, then redesigned where the
+               testing said so.</p>
+            <span class="go">Read the case study &rarr;</span>
+          </span>
+        </a>
+
+        <a class="card" href="spotify.html">
+          <span class="cover cover-swap cover-spotify">
+            <img src="assets/work/spotify-cover.jpg" alt="Spotify" loading="lazy">
+            <video src="assets/work/spotify-flow.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
+          </span>
+          <span class="meta"><span>Case study</span> &middot; <span>2026</span></span>
+          <h3>Spotify Userflow Redesign</h3>
+          <p>Moving the payoff in front of the ask &mdash; a playlist built from your
+             taste first, the account second.</p>
+          <span class="go">Read the case study &rarr;</span>
+        </a>
+
+        <span class="card">
+          <span class="cover cover-propr"><img src="assets/work/propr-cover.png" alt="Propr" loading="lazy"></span>
+          <span class="meta"><span>Full-stack</span> &middot; <span class="state">In progress</span></span>
+          <h3>Propr</h3>
+          <p>NBA, NFL and NHL player props, filtered down to the ones worth a look &mdash;
+             recent form, matchups and injuries weighed against live odds, so only the
+             good props make the board.</p>
+        </span>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Say hello.</h2>
+      <ul class="links">
+        <li><a href="mailto:Howardh0620@gmail.com">Howardh0620@gmail.com</a></li>
+        <li><a href="#" data-link="linkedin">LinkedIn</a></li>
+      </ul>
+
+      <a class="cave-card" href="batcave.html" data-bat>
+        <span class="sigil"><i class="bat" aria-hidden="true"></i></span>
+        <span>
+          <span class="t">Or take the long way down.</span>
+          <span class="d">The same portfolio as an explorable pixel-art Batcave &mdash;
+            sound, animation and all. Built by hand in a single HTML file.</span>
+        </span>
+        <span class="arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="creed">
+        It's not who I am underneath, but what I do that defines me.
+        <cite>Batman Begins, 2005</cite>
+      </p>
+      <div class="foot-col">
+        <h4>Say hi</h4>
+        <ul>
+          <li><a href="mailto:Howardh0620@gmail.com">Email</a></li>
+          <li><a href="#" data-link="linkedin">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Page</h4>
+        <ul>
+          <li><a href="index.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="batcave.html" data-bat>Batcave</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="swarm" aria-hidden="true">
+      <span class="swarm-hint">Grab a bat</span>
+      <i style="left:25.3%;top:33.4%;width:18px;height:8px;color:var(--text-3);opacity:0.79;--d:22.1s;--delay:-18.4s;--dx:-25px;--dy:9px;--r:7.7deg;--r2:-7.0deg"></i>
+      <i style="left:86.6%;top:13.3%;width:9px;height:4px;color:var(--acid);opacity:0.75;--d:16.7s;--delay:-2.0s;--dx:-11px;--dy:-20px;--r:6.5deg;--r2:-2.6deg"></i>
+      <i style="left:88.1%;top:66.8%;width:11px;height:5px;color:var(--ice);opacity:0.70;--d:12.1s;--delay:-12.4s;--dx:2px;--dy:-12px;--r:-10.3deg;--r2:13.2deg"></i>
+      <i style="left:20.9%;top:21.7%;width:9px;height:4px;color:var(--ice);opacity:0.75;--d:15.3s;--delay:-19.2s;--dx:8px;--dy:20px;--r:-8.3deg;--r2:12.3deg"></i>
+      <i style="left:19.7%;top:83.1%;width:22px;height:10px;color:var(--acid);opacity:0.46;--d:16.4s;--delay:-3.3s;--dx:-17px;--dy:-4px;--r:-12.2deg;--r2:-5.6deg"></i>
+      <i style="left:56.7%;top:52.9%;width:18px;height:8px;color:var(--text-3);opacity:0.48;--d:15.6s;--delay:-16.4s;--dx:4px;--dy:0px;--r:-8.8deg;--r2:-0.8deg"></i>
+      <i style="left:6.4%;top:84.0%;width:11px;height:5px;color:var(--signal);opacity:0.79;--d:16.4s;--delay:-8.1s;--dx:9px;--dy:6px;--r:-3.7deg;--r2:2.2deg"></i>
+      <i style="left:44.0%;top:62.0%;width:9px;height:4px;color:var(--crimson);opacity:0.80;--d:13.9s;--delay:-15.1s;--dx:26px;--dy:9px;--r:-4.4deg;--r2:-4.1deg"></i>
+      <i style="left:24.8%;top:42.0%;width:18px;height:8px;color:var(--crimson);opacity:0.69;--d:23.0s;--delay:-17.2s;--dx:-24px;--dy:7px;--r:12.5deg;--r2:-11.4deg"></i>
+      <i style="left:49.7%;top:33.7%;width:13px;height:6px;color:var(--ice);opacity:0.48;--d:24.9s;--delay:-10.9s;--dx:-7px;--dy:0px;--r:-5.4deg;--r2:8.4deg"></i>
+      <i style="left:15.1%;top:60.5%;width:22px;height:10px;color:var(--acid);opacity:0.38;--d:11.7s;--delay:-19.7s;--dx:8px;--dy:5px;--r:-13.1deg;--r2:6.7deg"></i>
+      <i style="left:79.5%;top:41.4%;width:13px;height:6px;color:var(--acid);opacity:0.38;--d:25.7s;--delay:-12.8s;--dx:25px;--dy:11px;--r:-4.6deg;--r2:-8.2deg"></i>
+      <i style="left:54.6%;top:14.9%;width:22px;height:10px;color:var(--acid);opacity:0.36;--d:17.5s;--delay:-3.0s;--dx:0px;--dy:-2px;--r:-10.0deg;--r2:11.8deg"></i>
+      <i style="left:82.0%;top:84.0%;width:18px;height:8px;color:var(--acid);opacity:0.80;--d:21.3s;--delay:-6.4s;--dx:-9px;--dy:-2px;--r:-0.8deg;--r2:11.3deg"></i>
+      <i style="left:36.8%;top:85.0%;width:9px;height:4px;color:var(--ice);opacity:0.63;--d:18.5s;--delay:-6.8s;--dx:-21px;--dy:11px;--r:-6.4deg;--r2:7.9deg"></i>
+      <i style="left:48.8%;top:9.2%;width:26px;height:11px;color:var(--violet);opacity:0.66;--d:21.0s;--delay:-15.2s;--dx:-3px;--dy:15px;--r:5.7deg;--r2:-6.1deg"></i>
+      <i style="left:26.2%;top:84.4%;width:15px;height:7px;color:var(--text-3);opacity:0.45;--d:25.2s;--delay:-13.0s;--dx:11px;--dy:-20px;--r:-0.7deg;--r2:7.7deg"></i>
+      <i style="left:64.8%;top:42.0%;width:13px;height:6px;color:var(--crimson);opacity:0.64;--d:23.0s;--delay:-7.0s;--dx:15px;--dy:2px;--r:6.7deg;--r2:9.2deg"></i>
+      <i style="left:88.6%;top:18.1%;width:13px;height:6px;color:var(--text-3);opacity:0.53;--d:16.5s;--delay:-6.7s;--dx:-17px;--dy:13px;--r:13.4deg;--r2:-8.4deg"></i>
+      <i style="left:90.1%;top:43.1%;width:13px;height:6px;color:var(--text-3);opacity:0.34;--d:21.1s;--delay:-8.3s;--dx:13px;--dy:17px;--r:0.5deg;--r2:12.2deg"></i>
+      <i style="left:60.3%;top:67.5%;width:13px;height:6px;color:var(--text-3);opacity:0.44;--d:25.9s;--delay:-3.9s;--dx:11px;--dy:8px;--r:3.5deg;--r2:-8.9deg"></i>
+      <i style="left:66.2%;top:55.7%;width:26px;height:11px;color:var(--signal);opacity:0.81;--d:25.7s;--delay:-3.3s;--dx:-18px;--dy:-13px;--r:-5.1deg;--r2:-8.9deg"></i>
+      <i style="left:53.1%;top:38.1%;width:11px;height:5px;color:var(--violet);opacity:0.50;--d:20.2s;--delay:-11.8s;--dx:-11px;--dy:3px;--r:-14.0deg;--r2:-2.6deg"></i>
+      <i style="left:82.3%;top:75.0%;width:13px;height:6px;color:var(--text-3);opacity:0.73;--d:16.6s;--delay:-0.7s;--dx:13px;--dy:-1px;--r:-11.3deg;--r2:1.3deg"></i>
+      <i style="left:91.4%;top:28.0%;width:13px;height:6px;color:var(--violet);opacity:0.73;--d:17.3s;--delay:-16.3s;--dx:15px;--dy:14px;--r:-3.7deg;--r2:-10.0deg"></i>
+      <i style="left:37.4%;top:43.1%;width:18px;height:8px;color:var(--ice);opacity:0.80;--d:20.1s;--delay:-7.0s;--dx:16px;--dy:-20px;--r:-3.3deg;--r2:-4.9deg"></i>
+      <i style="left:52.2%;top:30.7%;width:18px;height:8px;color:var(--crimson);opacity:0.50;--d:17.5s;--delay:-4.5s;--dx:-8px;--dy:10px;--r:13.2deg;--r2:-3.4deg"></i>
+      <i style="left:87.8%;top:52.9%;width:26px;height:11px;color:var(--violet);opacity:0.69;--d:15.5s;--delay:-5.0s;--dx:-25px;--dy:0px;--r:12.5deg;--r2:-5.4deg"></i>
+      <i style="left:14.6%;top:5.9%;width:13px;height:6px;color:var(--text-3);opacity:0.62;--d:17.7s;--delay:-5.9s;--dx:24px;--dy:-12px;--r:9.2deg;--r2:-13.6deg"></i>
+      <i style="left:54.2%;top:24.0%;width:18px;height:8px;color:var(--acid);opacity:0.71;--d:14.7s;--delay:-5.4s;--dx:-17px;--dy:-2px;--r:-5.8deg;--r2:3.0deg"></i>
+      <i style="left:50.2%;top:74.8%;width:15px;height:7px;color:var(--text-3);opacity:0.77;--d:11.2s;--delay:-2.5s;--dx:-8px;--dy:14px;--r:5.8deg;--r2:3.2deg"></i>
+      <i style="left:51.3%;top:42.1%;width:22px;height:10px;color:var(--violet);opacity:0.65;--d:23.2s;--delay:-2.6s;--dx:-26px;--dy:-4px;--r:1.5deg;--r2:5.2deg"></i>
+      <i style="left:85.4%;top:48.7%;width:9px;height:4px;color:var(--signal);opacity:0.52;--d:23.1s;--delay:-11.9s;--dx:18px;--dy:20px;--r:4.2deg;--r2:10.0deg"></i>
+      <i style="left:37.6%;top:36.1%;width:26px;height:11px;color:var(--text-3);opacity:0.40;--d:15.4s;--delay:-16.6s;--dx:-22px;--dy:-1px;--r:9.4deg;--r2:5.4deg"></i>
+  </div>
+
+  <div class="wrap">
+    <div class="foot-base">
+      <span>Built by hand, mostly after dark</span>
+      <span>&copy; 2026 Howard Huang</span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+/* case board — string the pins together, then draw the thread in */
+(function(){
+  var board = document.getElementById('board');
+  if (!board) return;
+  var svg  = board.querySelector('.threads');
+  var line = svg && svg.querySelector('path');
+  if (!line) return;
+
+  function draw(){
+    var b = board.getBoundingClientRect();
+    if (!b.width) return;
+    var pins = board.querySelectorAll('.pin');
+    if (pins.length < 2) return;
+    var pts = [];
+    for (var i = 0; i < pins.length; i++){
+      var r = pins[i].getBoundingClientRect();
+      pts.push([ r.left + r.width / 2 - b.left, r.top + r.height / 2 - b.top ]);
+    }
+    /* string sags between pins instead of running taut */
+    var d = 'M' + pts[0][0].toFixed(1) + ' ' + pts[0][1].toFixed(1);
+    for (var j = 1; j < pts.length; j++){
+      var a = pts[j - 1], c = pts[j];
+      var dx = c[0] - a[0], dy = c[1] - a[1];
+      var sag = Math.min(Math.sqrt(dx * dx + dy * dy) * 0.11, 46);
+      d += ' Q' + ((a[0] + c[0]) / 2).toFixed(1) + ' ' +
+                  ((a[1] + c[1]) / 2 + sag).toFixed(1) + ' ' +
+                  c[0].toFixed(1) + ' ' + c[1].toFixed(1);
+    }
+    svg.setAttribute('viewBox', '0 0 ' + b.width.toFixed(1) + ' ' + b.height.toFixed(1));
+    line.setAttribute('d', d);
+    line.style.setProperty('--len', line.getTotalLength().toFixed(0));
+    board.classList.add('threaded');
+  }
+
+  if (document.readyState === 'complete') draw();
+  else addEventListener('load', draw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+
+  var t;
+  addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(draw, 140); }, { passive:true });
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

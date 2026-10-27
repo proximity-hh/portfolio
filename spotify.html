@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Spotify Userflow Redesign — UX Case Study — Howard Huang</title>
+<meta name="description" content="A UX case study: moving the payoff in front of the ask in Spotify's signup — a playlist built from your taste first, the account second.">
+<script>try{if(sessionStorage.getItem('batwipe')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('bat-in')}catch(e){}</script>
+<link rel="stylesheet" href="assets/site.css">
+<script>window.spPlaceholder=function(i){window.__spMissing=(window.__spMissing||[]);window.__spMissing.push(i);};</script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Howard Huang</a>
+    <nav class="nav">
+      <a href="index.html">Work</a>
+      <a href="about.html">About</a>
+      <a class="bat-toggle" href="batcave.html" data-bat><i class="bat" aria-hidden="true"></i>Batcave</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap sp-wrap">
+    <a class="back" href="index.html#work">&larr; All work</a>
+<div class="sp">
+    <header class="sp-hero" id="sp-top">
+      <div>
+        <span class="sp-k">Case study · Spotify onboarding</span>
+        <h1>Reducing Signup Drop&#8209;Off</h1>
+        <p class="sp-lede">Spotify asks for six things before it plays a single song. I moved the payoff in front of the ask — a playlist built from your taste first, the account second.</p>
+        <div class="sp-meta">
+          <div><span class="sp-k">Role</span><b>Sole designer — audit, flows, UI, prototype</b></div>
+          <div><span class="sp-k">Timeline</span><b>4 weeks · Aug–Sep 2026</b></div>
+          <div><span class="sp-k">Type</span><b>Self-directed, unsolicited</b></div>
+          <div><span class="sp-k">Tools</span><b>Figma · FigJam</b></div>
+        </div>
+      </div>
+      <div class="sp-hero-media">
+        <video src="assets/work/spotify-flow.mp4" poster="assets/work/spotify-flow.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        <span class="sp-cap">Prototype — genre, artists, playlist, then sign up.</span>
+      </div>
+    </header>
+    <div class="sp-stats">
+      <div class="sp-stat"><div class="n"><span class="was">6</span><span class="arr">→</span><span class="now">0</span></div><span class="l">asks before the user receives anything</span></div>
+      <div class="sp-stat"><div class="n"><span class="was">3</span><span class="arr">→</span><span class="now">0</span></div><span class="l">error loops before any value</span></div>
+      <div class="sp-stat"><div class="n"><span class="was">0</span><span class="arr">→</span><span class="now">2</span></div><span class="l">choices made before the ask</span></div>
+    </div>
+    <span class="sp-foot">Counted from the two flow maps. No access to Spotify’s funnel data — everything here is a reasoned hypothesis, not a result.</span>
+    <div class="case-process sp-process"><div class="ph" data-go="sp-research" role="button" tabindex="0"><b>1</b><strong>Research</strong><i>Flow audit<br>Constraints<br>Competitors</i></div><div class="ph" data-go="sp-synthesis" role="button" tabindex="0"><b>2</b><strong>Synthesis</strong><i>Drop-off drivers<br>Persona</i></div><div class="ph" data-go="sp-ideation" role="button" tabindex="0"><b>3</b><strong>Ideation</strong><i>Hypothesis<br>Principles<br>Userflow</i></div><div class="ph" data-go="sp-final" role="button" tabindex="0"><b>4</b><strong>Final Designs</strong><i>Visual system<br>Screens</i></div><div class="ph" data-go="sp-reflection" role="button" tabindex="0"><b>5</b><strong>Reflection</strong><i>Metrics<br>Gaps and fixes</i></div></div><nav class="sp-nav" aria-label="Case study sections"><div class="sp-nav-track"><button type="button" data-go="sp-top">OVERVIEW</button><button type="button" data-go="sp-research"><b>01</b>RESEARCH</button><button type="button" data-go="sp-synthesis"><b>02</b>SYNTHESIS</button><button type="button" data-go="sp-ideation"><b>03</b>IDEATION</button><button type="button" data-go="sp-final"><b>04</b>FINAL DESIGNS</button><button type="button" data-go="sp-reflection"><b>05</b>REFLECTION</button></div></nav><section class="sp-ch" id="sp-research"><div class="sp-ch-head"><span class="sp-ch-num">01</span><div><span class="sp-k">Where do users leave?</span><h3>Research</h3></div></div>
+    <div class="sp-callout q"><p>Drop-off isn’t caused by length. It’s caused by <em>uncompensated</em> length — steps that take without giving anything back.</p></div>
+    <div class="sp-flow-wrap">
+      <div class="sp-flow-head"><strong><em>BEFORE</em>SPOTIFY TODAY</strong>
+        <div class="sp-counts"><span class="sp-count bad"><b>6</b> asks before value</span><span class="sp-count bad"><b>3</b> error loops</span></div></div>
+      <div class="sp-flow-box"><div class="sp-flow" data-zoom="assets/work/spotify-flow-current.png" data-title="Current Spotify signup flow"><img src="assets/work/spotify-flow-current.png" alt="Current Spotify signup flow: six asks, then artist selection after the account exists."></div><span class="sp-zoom-hint">⤢ ENLARGE</span></div>
+      <span class="sp-figcap">Every ask comes first. Taste is asked for once — after the account already exists.</span>
+      <button type="button" class="sp-reveal" aria-expanded="false" data-show="SHOW SPOTIFY’S CURRENT SIGNUP · 6 SCREENS" data-hide="HIDE SPOTIFY’S CURRENT SIGNUP"><span class="car">▸</span><span class="lbl">SHOW SPOTIFY’S CURRENT SIGNUP · 6 SCREENS</span></button><div class="sp-reveal-body"><div class="sp-strip sp-orig"><figure><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-1.png" alt="Sign-up method screen" loading="lazy" data-kind="phone" data-label="Sign-up method" onerror="spPlaceholder(this)"><figcaption><b>ASK 1</b>Sign-up method</figcaption></figure><figure><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-2.png" alt="Email screen" loading="lazy" data-kind="phone" data-label="Email" onerror="spPlaceholder(this)"><figcaption><b>ASK 2</b>Email</figcaption></figure><figure><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-3.png" alt="Password screen" loading="lazy" data-kind="phone" data-label="Password" onerror="spPlaceholder(this)"><figcaption><b>ASK 3</b>Password</figcaption></figure><figure><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-4.png" alt="Date of birth screen" loading="lazy" data-kind="phone" data-label="Date of birth" onerror="spPlaceholder(this)"><figcaption><b>ASK 4</b>Date of birth</figcaption></figure><figure><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-5.png" alt="Name & terms screen" loading="lazy" data-kind="phone" data-label="Name & terms" onerror="spPlaceholder(this)"><figcaption><b>ASK 5</b>Name & terms</figcaption></figure><figure><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-6.png" alt="Notifications screen" loading="lazy" data-kind="phone" data-label="Notifications" onerror="spPlaceholder(this)"><figcaption><b>ASK 6</b>Notifications</figcaption></figure></div><span class="sp-figcap">Six screens, in order, before any music. Screens: Spotify iOS, via Mobbin.</span></div>
+    </div>
+    <div class="sp-scope"><span class="sp-k">Constraint</span><p>Date of birth is legally required, so it stays. Separating constraints from choices was the most useful hour of the project.</p></div>
+
+    <h4>Spotify has the hardest version of this problem</h4>
+    <div class="sp-diff">
+      <div class="sp-diff-row head"><span>Service</span><span>Starts with</span><span>Must extract</span><span style="text-align:right">Burden</span></div>
+      <div class="sp-diff-row"><b>YouTube Music</b><span>Google account + history</span><span>Nothing — starts warm</span><div class="sp-pips"><i class=""></i><i class=""></i><i class=""></i></div></div><div class="sp-diff-row"><b>Apple Music</b><span>Apple ID, no history</span><span>Taste only</span><div class="sp-pips"><i class="on"></i><i class=""></i><i class=""></i></div></div><div class="sp-diff-row me"><b>Spotify</b><span>Nothing</span><span>Identity and taste</span><div class="sp-pips"><i class="on"></i><i class="on"></i><i class=""></i></div></div><div class="sp-diff-row"><b>Tidal / Deezer</b><span>Nothing, plus a paywall</span><span>Identity, taste, payment</span><div class="sp-pips"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+    </div>
+    <div class="sp-callout"><p><b>No major music app shows the payoff before the ask.</b> Apple Music has the best picker — three levels per gesture, artists derived from genres — but it’s one-time, with no undo. The closest pattern is Duolingo: a lesson before the account.</p></div></section><section class="sp-ch" id="sp-synthesis"><div class="sp-ch-head"><span class="sp-ch-num">02</span><div><span class="sp-k">Why do they leave, and who feels it most?</span><h3>Synthesis</h3></div></div>
+    <p class="sp-lead">I separated abandonment into the mechanisms behind it. This is the spine of the redesign — every later decision is tagged with the driver it answers.</p>
+    <div class="sp-drivers"><div class="sp-driver" style="--c:#ff9a6b"><span class="sp-tag" style="--c:#ff9a6b">D1 · UNCOMPENSATED FRICTION</span><span class="where">Six asks before any audio</span><span class="resp">Move the payoff before the ask</span></div><div class="sp-driver" style="--c:#ffd166"><span class="sp-tag" style="--c:#ffd166">D2 · UNKNOWN DURATION</span><span class="where">No progress indication</span><span class="resp">Segmented progress bar from screen one</span></div><div class="sp-driver" style="--c:#ff7a9a"><span class="sp-tag" style="--c:#ff7a9a">D3 · ERROR RECOVERY COST</span><span class="where">Three validation loops, all before any value</span><span class="resp">Keep validation — move it after the user has something to protect</span></div><div class="sp-driver" style="--c:#6ee7ff"><span class="sp-tag" style="--c:#6ee7ff">D4 · PERCEIVED IRRELEVANCE</span><span class="where">Date of birth arrives unexplained</span><span class="resp">Explain every ask in its subtitle</span></div><div class="sp-driver" style="--c:#b8a1ff"><span class="sp-tag" style="--c:#b8a1ff">D5 · DECISION FATIGUE</span><span class="where">Artist grid, three-pick minimum, no guidance</span><span class="resp">Fewer options, no minimum, explicit multi-select</span></div><div class="sp-driver" style="--c:#5ee39a"><span class="sp-tag" style="--c:#5ee39a">D6 · COMMITMENT AVERSION</span><span class="where">Account required for an unproven product</span><span class="resp">Prove the product first</span></div></div>
+
+    <h4>User persona</h4>
+    <div class="sp-pc">
+      <div class="sp-pc-side">
+        <div class="sp-pc-photo"><img src="assets/work/spotify-persona.png" alt="" data-kind="avatar" data-initials="WC" onerror="spPlaceholder(this)"></div>
+        <div class="sp-pc-info">
+          <div class="sp-pc-name">William Chen, 24</div>
+          <ul class="sp-pc-vitals"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM6 12.7v3.6C6 18.3 8.7 20 12 20s6-1.7 6-3.7v-3.6l-6 3-6-3z"/></svg><span>Master’s student</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 3v13h10V5H7zm5 14.2a.9.9 0 1 0 0 1.8.9.9 0 0 0 0-1.8z"/></svg><span>Android — switched from iPhone three weeks ago</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-9 9v6a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H5v-1a7 7 0 0 1 14 0v1h-2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a3 3 0 0 0 3-3v-6a9 9 0 0 0-9-9z"/></svg><span>Five to six hours a day on headphones</span></li></ul>
+          <p class="sp-pc-bio">William works with headphones on most of the day — coursework, the lab, his commute. He spent four years quietly training Apple Music into a taste profile he trusted. Now on Android, he’s trying Spotify and starting from zero. He knows what a good recommendation feels like, so a weak first impression lands harder.</p>
+        </div>
+      </div>
+      <div class="sp-pc-main">
+        <p class="sp-pc-quote">I gave it three artists and it played me the same stuff it plays everyone.</p>
+        <div><h5>Needs</h5><div class="sp-pc-list"><p>To hear something that sounds like him on the first play — not what everyone gets.</p><p>To know why he’s being asked for something before he gives it.</p><p>To rebuild the taste profile he left behind without it feeling like a form.</p></div></div>
+        <div><h5>Pain Points</h5><div class="sp-pc-list"><p>Date of birth arrives before any music, and feels unrelated to it.</p><p>A password error four fields in, having received nothing yet.</p><p>A generic first play, which tells him the setup was decorative.</p></div></div>
+        <div><h5>Emotional State with Spotify</h5>
+          <div class="sp-mood"><span class="sp-mood-scale"><span class="neg">−</span><span class="pos">+</span></span>
+            <b>Satisfaction</b><span class="sp-bar"><i style="width:28%"></i></span><b>Trust</b><span class="sp-bar"><i style="width:36%"></i></span><b>Engagement</b><span class="sp-bar"><i style="width:74%"></i></span></div>
+          <p class="sp-mood-note">He wants this to work. The gap between engagement and satisfaction is the opportunity.</p></div>
+      </div>
+    </div></section><section class="sp-ch" id="sp-ideation"><div class="sp-ch-head"><span class="sp-ch-num">03</span><div><span class="sp-k">What should change?</span><h3>Ideation</h3></div></div>
+    <h4 style="margin-top:0">Hypothesis</h4>
+    <div class="sp-hyp">
+      <div><span>IF</span><p>a new user gets a personalized playlist before being asked to register,</p></div>
+      <div><span>THEN</span><p>more users who open the app will reach first play,</p></div>
+      <div><span>BECAUSE</span><p>the account reads as saving something they own, not a gate on something unproven.</p></div>
+      <div class="fail"><span>FAILS IF</span><p>playlist-reveal → account conversion is no better than Spotify’s welcome → account.</p></div>
+    </div>
+    <div class="sp-obj">
+      <div><span class="sp-k">The obvious objection</span><p class="said">“You added three screens before signup.”</p></div>
+      <div><span class="sp-k">My answer</span><p>Those screens give back — two take a preference, one hands over a result. So the primary metric is end-to-end completion, not form completion, which would flatter the redesign.</p></div>
+    </div>
+    <h4>Three principles</h4>
+    <div class="sp-prin">
+      <div class="sp-pr"><span class="no">PRINCIPLE 01</span><h4>Earn commitment before requesting it</h4>
+        <div class="sp-laws"><span class="sp-law">Commitment & consistency</span><span class="sp-law">IKEA effect</span></div>
+        <p>Registration moves to the end. By then, leaving means discarding their own work.</p>
+        <div class="sp-trade"><b>TRADE-OFF ACCEPTED</b>Selections must survive account creation. If that hand-off fails, the user loses their work at the worst moment.</div>
+        <div class="tags"><span class="sp-tag" style="--c:#5ee39a">D6 · COMMITMENT AVERSION</span><span class="sp-tag" style="--c:#ff9a6b">D1 · UNCOMPENSATED FRICTION</span></div>
+      </div>
+      <div class="sp-pr"><span class="no">PRINCIPLE 02</span><h4>Reduce the cost of each decision</h4>
+        <div class="sp-laws"><span class="sp-law">Hick’s Law</span><span class="sp-law">Recognition over recall</span></div>
+        <p>Ten chips, multi-select, faces not names. No minimum anywhere.</p>
+        
+        <div class="tags"><span class="sp-tag" style="--c:#b8a1ff">D5 · DECISION FATIGUE</span></div>
+      </div>
+      <div class="sp-pr"><span class="no">PRINCIPLE 03</span><h4>Show the payoff before the ask</h4>
+        <div class="sp-laws"><span class="sp-law">Endowed progress</span><span class="sp-law">Peak-end rule</span></div>
+        <p>A segmented bar says it’s short. The reveal lands right before the only screen that asks for anything.</p>
+        
+        <div class="tags"><span class="sp-tag" style="--c:#ffd166">D2 · UNKNOWN DURATION</span><span class="sp-tag" style="--c:#6ee7ff">D4 · PERCEIVED IRRELEVANCE</span></div>
+      </div></div>
+    <div class="sp-flow-wrap" style="margin-top:22px">
+      <div class="sp-flow-head after"><strong><em>AFTER</em>REDESIGN</strong>
+        <div class="sp-counts"><span class="sp-count good"><b>6 → 0</b> asks before value</span><span class="sp-count good"><b>0 → 2</b> choices before the ask</span></div></div>
+      <div class="sp-flow-box"><div class="sp-flow" data-zoom="assets/work/spotify-flow-redesign.png" data-title="Redesigned flow"><img src="assets/work/spotify-flow-redesign.png" alt="Redesigned flow: genre and artist selection, curation, playlist ready, then sign up."></div><span class="sp-zoom-hint">⤢ ENLARGE</span></div>
+      <span class="sp-figcap">Two expression points first, the single ask second from the end. Skipping both routes to a fallback seed, not an error.</span>
+    </div></section><section class="sp-ch" id="sp-final"><div class="sp-ch-head"><span class="sp-ch-num">04</span><div><span class="sp-k">What does each screen decide?</span><h3>Final Designs</h3></div></div>
+    <div class="sp-vs"><div class="sp-card"><div class="sp-demo"><span class="btn off">NEXT</span><span class="btn on">NEXT</span></div><h4>Accent discipline</h4><p>Green only means selected, enabled or done — so Sign Up reads as continuation.</p></div><div class="sp-card"><div class="sp-demo"><span class="mini"><i class="p"></i><i></i><i class="g"></i><i class="b"></i></span></div><h4>Pinned primary action</h4><p>Same position on every screen, so the thumb learns it once.</p></div><div class="sp-card"><div class="sp-demo"><span class="chip">Pop</span><span class="chip sel">Jazz</span></div><h4>Fill, not border</h4><p>Selection changes the fill, so the grid never shifts as you tap.</p></div></div>
+    
+      <div class="sp-screen">
+        <div class="sp-sc-media"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-screen-genre.png" alt="Genre selection screen" loading="lazy" data-kind="phone" data-label="Genre selection" onerror="spPlaceholder(this)"></div>
+        <div>
+          <div class="sp-steps"><i class="cur"></i><i class=""></i><i class=""></i><i class=""></i><i class="ask"></i></div>
+          <div class="sp-sc-top"><span class="sp-k">Step 1 of 5</span></div>
+          <h4>Genre selection</h4>
+          <div class="sp-ui"><b>What are your favorite music genres?</b><span>Select one or multiple</span></div>
+          <div><div class="sp-dec"><b>Ten chips, multi-select said out loud</b><span class="sp-tag" style="--c:#b8a1ff">D5 · DECISION FATIGUE</span><p>Scannable in one pass. Users assume single choice unless told otherwise.</p></div><div class="sp-dec"><b>No minimum</b><span class="sp-tag" style="--c:#ff7a9a">D3 · ERROR RECOVERY COST</span><p>A minimum turns a preference into a requirement — and creates an error loop.</p></div><div class="sp-dec"><b>Skip visible, not buried</b><span class="sp-tag" style="--c:#ff9a6b">D1 · UNCOMPENSATED FRICTION</span><p>A hidden exit turns a soft skip into hard abandonment.</p></div></div>
+          
+        </div>
+      </div>
+      <div class="sp-screen">
+        <div class="sp-sc-media"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-screen-artists.png" alt="Artist selection screen" loading="lazy" data-kind="phone" data-label="Artist selection" onerror="spPlaceholder(this)"></div>
+        <div>
+          <div class="sp-steps"><i class="done"></i><i class="cur"></i><i class=""></i><i class=""></i><i class="ask"></i></div>
+          <div class="sp-sc-top"><span class="sp-k">Step 2 of 5</span></div>
+          <h4>Artist selection</h4>
+          <div class="sp-ui"><b>Who are your favorite artists?</b><span>Select one or multiple</span></div>
+          <div><div class="sp-dec"><b>Faces, with names beneath</b><span class="sp-tag" style="--c:#b8a1ff">D5 · DECISION FATIGUE</span><p>Recognition is faster than recall; names catch artists known only by name.</p></div><div class="sp-dec"><b>Back navigation added</b><span class="sp-tag" style="--c:#ff7a9a">D3 · ERROR RECOVERY COST</span><p>First point a user might spot an upstream mistake. Without it, the only fix is leaving.</p></div></div>
+          
+        </div>
+      </div>
+      <div class="sp-screen">
+        <div class="sp-sc-media"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-screen-curating.png" alt="Curating your mix screen" loading="lazy" data-kind="phone" data-label="Curating your mix" onerror="spPlaceholder(this)"></div>
+        <div>
+          <div class="sp-steps"><i class="done"></i><i class="done"></i><i class="cur"></i><i class=""></i><i class="ask"></i></div>
+          <div class="sp-sc-top"><span class="sp-k">Step 3 of 5</span></div>
+          <h4>Curating your mix</h4>
+          
+          <div><div class="sp-dec"><b>A deliberate, visible wait</b><span class="sp-tag" style="--c:#6ee7ff">D4 · PERCEIVED IRRELEVANCE</span><p>An instant result reads as pre-baked. This screen is the receipt for the effort just spent.</p></div></div>
+          
+        </div>
+      </div>
+      <div class="sp-screen">
+        <div class="sp-sc-media"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-screen-playlist.png" alt="Playlist ready screen" loading="lazy" data-kind="phone" data-label="Playlist ready" onerror="spPlaceholder(this)"></div>
+        <div>
+          <div class="sp-steps"><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur"></i><i class="ask"></i></div>
+          <div class="sp-sc-top"><span class="sp-k">Step 4 of 5</span><span class="sp-badge">THE HINGE</span></div>
+          <h4>Playlist ready</h4>
+          <div class="sp-ui"><b>Your playlist is ready!</b><span>24 songs picked for your taste</span></div>
+          <div><div class="sp-dec"><b>A specific count</b><span class="sp-tag" style="--c:#6ee7ff">D4 · PERCEIVED IRRELEVANCE</span><p>A number reads as computed; a generic confirmation reads as a template.</p></div><div class="sp-dec"><b>Placed right before the ask</b><span class="sp-tag" style="--c:#5ee39a">D6 · COMMITMENT AVERSION</span><p>Peak-end rule — the ask lands at the flow’s high point, not its low.</p></div></div>
+          
+        </div>
+      </div>
+      <div class="sp-screen">
+        <div class="sp-sc-media"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-screen-signup.png" alt="Sign up screen" loading="lazy" data-kind="phone" data-label="Sign up" onerror="spPlaceholder(this)"></div>
+        <div>
+          <div class="sp-steps"><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="cur ask"></i></div>
+          <div class="sp-sc-top"><span class="sp-k">Step 5 of 5</span><span class="sp-badge">THE ONLY ASK</span></div>
+          <h4>Sign up</h4>
+          <div class="sp-ui"><b>Let’s get you signed up</b><span>You’ll use this to log in next time</span></div>
+          <div><div class="sp-dec"><b>Subtitle explains the ask</b><span class="sp-tag" style="--c:#6ee7ff">D4 · PERCEIVED IRRELEVANCE</span><p>Reframes signup as saving what they just built.</p></div><div class="sp-dec"><b>Inline validation, password toggle</b><span class="sp-tag" style="--c:#ff7a9a">D3 · ERROR RECOVERY COST</span><p>A mistake costs a correction, not a round trip.</p></div><div class="sp-dec"><b>Consent unchecked by default</b><span class="sp-tag">TRUST</span><p>Deliberate rather than dark-patterned.</p></div></div>
+          <button type="button" class="sp-reveal" aria-expanded="false" data-show="COMPARE WITH SPOTIFY TODAY" data-hide="HIDE COMPARISON"><span class="car">▸</span><span class="lbl">COMPARE WITH SPOTIFY TODAY</span></button><div class="sp-reveal-body"><div class="sp-compare"><div><span class="sp-k">Spotify today · 6 screens</span><div class="before"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-1.png" alt="Sign-up method screen" loading="lazy" data-kind="phone" data-label="Sign-up method" onerror="spPlaceholder(this)"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-2.png" alt="Email screen" loading="lazy" data-kind="phone" data-label="Email" onerror="spPlaceholder(this)"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-3.png" alt="Password screen" loading="lazy" data-kind="phone" data-label="Password" onerror="spPlaceholder(this)"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-4.png" alt="Date of birth screen" loading="lazy" data-kind="phone" data-label="Date of birth" onerror="spPlaceholder(this)"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-5.png" alt="Name & terms screen" loading="lazy" data-kind="phone" data-label="Name & terms" onerror="spPlaceholder(this)"><img class="sp-shot sp-shot-phone" src="assets/work/spotify-orig-6.png" alt="Notifications screen" loading="lazy" data-kind="phone" data-label="Notifications" onerror="spPlaceholder(this)"></div></div><span class="arrow">→</span><div class="after"><span class="sp-k">Redesign · 1</span><img class="sp-shot sp-shot-phone" src="assets/work/spotify-screen-signup.png" alt="Sign up screen" loading="lazy" data-kind="phone" data-label="Sign up" onerror="spPlaceholder(this)"></div></div><span class="sp-figcap">Email, password, name and terms — three of Spotify’s screens — become one form, and the notification prompt leaves onboarding entirely. Sign-up method and date of birth are open gaps; see Reflection. Screens: Spotify iOS, via Mobbin.</span></div>
+        </div>
+      </div></section><section class="sp-ch" id="sp-reflection"><div class="sp-ch-head"><span class="sp-ch-num">05</span><div><span class="sp-k">How would we know — and what’s missing?</span><h3>Reflection</h3></div></div>
+    <div class="sp-primary">
+      <div><span class="sp-k">Primary metric</span><div class="sp-funnel">APP OPEN<i></i>FIRST PLAY</div></div>
+      <p>End-to-end, not form completion — measuring the form alone would exclude everyone who left before reaching it.</p>
+    </div>
+    <div class="sp-crit" style="margin-top:12px"><span>Guardrails:</span><span>Time to first play</span><span>Day-7 retention</span><span>Personalization skip rate</span><span>Lost-setup support contacts</span></div>
+    <div class="sp-rule"><span class="sp-k">Decision rule</span><p>If completion rises but day-7 retention falls, it optimized the wrong thing and shouldn’t ship.</p></div>
+    
+    <h4>Known gaps, and the fix for each</h4>
+    <div class="sp-fix">
+      <div class="sp-fix-row head"><span>Gap</span><span></span><span>Next</span></div>
+      <div class="sp-fix-row"><span class="g">Artists ignore genre picks</span><span class="a">→</span><span class="f">Derive the grid from the genres chosen</span></div><div class="sp-fix-row"><span class="g">No age gate</span><span class="a">→</span><span class="f">Test placement: up front vs. at the end</span></div><div class="sp-fix-row"><span class="g">Skip copy says “picked for your taste”</span><span class="a">→</span><span class="f">Separate copy for the fallback seed</span></div><div class="sp-fix-row"><span class="g">Selections lost if user leaves at the form</span><span class="a">→</span><span class="f">Design the abandonment path</span></div><div class="sp-fix-row"><span class="g">No social sign-up</span><span class="a">→</span><span class="f">Add OAuth at the conversion screen</span></div>
+    </div>
+    <div class="sp-ph-text" style="margin-top:14px"><p><b>What I’d do differently —</b> write one true, specific sentence here.</p></div></section></div>
+    <div class="sp-end-nav"><a class="back" href="index.html#work" style="margin:0">&larr; All work</a></div>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="creed">
+        It's not who I am underneath, but what I do that defines me.
+        <cite>Batman Begins, 2005</cite>
+      </p>
+      <div class="foot-col">
+        <h4>Say hi</h4>
+        <ul>
+          <li><a href="mailto:Howardh0620@gmail.com">Email</a></li>
+          <li><a href="#" data-link="linkedin">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Page</h4>
+        <ul>
+          <li><a href="index.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="batcave.html" data-bat>Batcave</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="swarm" aria-hidden="true">
+      <span class="swarm-hint">Grab a bat</span>
+      <i style="left:25.3%;top:33.4%;width:18px;height:8px;color:var(--text-3);opacity:0.79;--d:22.1s;--delay:-18.4s;--dx:-25px;--dy:9px;--r:7.7deg;--r2:-7.0deg"></i>
+      <i style="left:86.6%;top:13.3%;width:9px;height:4px;color:var(--acid);opacity:0.75;--d:16.7s;--delay:-2.0s;--dx:-11px;--dy:-20px;--r:6.5deg;--r2:-2.6deg"></i>
+      <i style="left:88.1%;top:66.8%;width:11px;height:5px;color:var(--ice);opacity:0.70;--d:12.1s;--delay:-12.4s;--dx:2px;--dy:-12px;--r:-10.3deg;--r2:13.2deg"></i>
+      <i style="left:20.9%;top:21.7%;width:9px;height:4px;color:var(--ice);opacity:0.75;--d:15.3s;--delay:-19.2s;--dx:8px;--dy:20px;--r:-8.3deg;--r2:12.3deg"></i>
+      <i style="left:19.7%;top:83.1%;width:22px;height:10px;color:var(--acid);opacity:0.46;--d:16.4s;--delay:-3.3s;--dx:-17px;--dy:-4px;--r:-12.2deg;--r2:-5.6deg"></i>
+      <i style="left:56.7%;top:52.9%;width:18px;height:8px;color:var(--text-3);opacity:0.48;--d:15.6s;--delay:-16.4s;--dx:4px;--dy:0px;--r:-8.8deg;--r2:-0.8deg"></i>
+      <i style="left:6.4%;top:84.0%;width:11px;height:5px;color:var(--signal);opacity:0.79;--d:16.4s;--delay:-8.1s;--dx:9px;--dy:6px;--r:-3.7deg;--r2:2.2deg"></i>
+      <i style="left:44.0%;top:62.0%;width:9px;height:4px;color:var(--crimson);opacity:0.80;--d:13.9s;--delay:-15.1s;--dx:26px;--dy:9px;--r:-4.4deg;--r2:-4.1deg"></i>
+      <i style="left:24.8%;top:42.0%;width:18px;height:8px;color:var(--crimson);opacity:0.69;--d:23.0s;--delay:-17.2s;--dx:-24px;--dy:7px;--r:12.5deg;--r2:-11.4deg"></i>
+      <i style="left:49.7%;top:33.7%;width:13px;height:6px;color:var(--ice);opacity:0.48;--d:24.9s;--delay:-10.9s;--dx:-7px;--dy:0px;--r:-5.4deg;--r2:8.4deg"></i>
+      <i style="left:15.1%;top:60.5%;width:22px;height:10px;color:var(--acid);opacity:0.38;--d:11.7s;--delay:-19.7s;--dx:8px;--dy:5px;--r:-13.1deg;--r2:6.7deg"></i>
+      <i style="left:79.5%;top:41.4%;width:13px;height:6px;color:var(--acid);opacity:0.38;--d:25.7s;--delay:-12.8s;--dx:25px;--dy:11px;--r:-4.6deg;--r2:-8.2deg"></i>
+      <i style="left:54.6%;top:14.9%;width:22px;height:10px;color:var(--acid);opacity:0.36;--d:17.5s;--delay:-3.0s;--dx:0px;--dy:-2px;--r:-10.0deg;--r2:11.8deg"></i>
+      <i style="left:82.0%;top:84.0%;width:18px;height:8px;color:var(--acid);opacity:0.80;--d:21.3s;--delay:-6.4s;--dx:-9px;--dy:-2px;--r:-0.8deg;--r2:11.3deg"></i>
+      <i style="left:36.8%;top:85.0%;width:9px;height:4px;color:var(--ice);opacity:0.63;--d:18.5s;--delay:-6.8s;--dx:-21px;--dy:11px;--r:-6.4deg;--r2:7.9deg"></i>
+      <i style="left:48.8%;top:9.2%;width:26px;height:11px;color:var(--violet);opacity:0.66;--d:21.0s;--delay:-15.2s;--dx:-3px;--dy:15px;--r:5.7deg;--r2:-6.1deg"></i>
+      <i style="left:26.2%;top:84.4%;width:15px;height:7px;color:var(--text-3);opacity:0.45;--d:25.2s;--delay:-13.0s;--dx:11px;--dy:-20px;--r:-0.7deg;--r2:7.7deg"></i>
+      <i style="left:64.8%;top:42.0%;width:13px;height:6px;color:var(--crimson);opacity:0.64;--d:23.0s;--delay:-7.0s;--dx:15px;--dy:2px;--r:6.7deg;--r2:9.2deg"></i>
+      <i style="left:88.6%;top:18.1%;width:13px;height:6px;color:var(--text-3);opacity:0.53;--d:16.5s;--delay:-6.7s;--dx:-17px;--dy:13px;--r:13.4deg;--r2:-8.4deg"></i>
+      <i style="left:90.1%;top:43.1%;width:13px;height:6px;color:var(--text-3);opacity:0.34;--d:21.1s;--delay:-8.3s;--dx:13px;--dy:17px;--r:0.5deg;--r2:12.2deg"></i>
+      <i style="left:60.3%;top:67.5%;width:13px;height:6px;color:var(--text-3);opacity:0.44;--d:25.9s;--delay:-3.9s;--dx:11px;--dy:8px;--r:3.5deg;--r2:-8.9deg"></i>
+      <i style="left:66.2%;top:55.7%;width:26px;height:11px;color:var(--signal);opacity:0.81;--d:25.7s;--delay:-3.3s;--dx:-18px;--dy:-13px;--r:-5.1deg;--r2:-8.9deg"></i>
+      <i style="left:53.1%;top:38.1%;width:11px;height:5px;color:var(--violet);opacity:0.50;--d:20.2s;--delay:-11.8s;--dx:-11px;--dy:3px;--r:-14.0deg;--r2:-2.6deg"></i>
+      <i style="left:82.3%;top:75.0%;width:13px;height:6px;color:var(--text-3);opacity:0.73;--d:16.6s;--delay:-0.7s;--dx:13px;--dy:-1px;--r:-11.3deg;--r2:1.3deg"></i>
+      <i style="left:91.4%;top:28.0%;width:13px;height:6px;color:var(--violet);opacity:0.73;--d:17.3s;--delay:-16.3s;--dx:15px;--dy:14px;--r:-3.7deg;--r2:-10.0deg"></i>
+      <i style="left:37.4%;top:43.1%;width:18px;height:8px;color:var(--ice);opacity:0.80;--d:20.1s;--delay:-7.0s;--dx:16px;--dy:-20px;--r:-3.3deg;--r2:-4.9deg"></i>
+      <i style="left:52.2%;top:30.7%;width:18px;height:8px;color:var(--crimson);opacity:0.50;--d:17.5s;--delay:-4.5s;--dx:-8px;--dy:10px;--r:13.2deg;--r2:-3.4deg"></i>
+      <i style="left:87.8%;top:52.9%;width:26px;height:11px;color:var(--violet);opacity:0.69;--d:15.5s;--delay:-5.0s;--dx:-25px;--dy:0px;--r:12.5deg;--r2:-5.4deg"></i>
+      <i style="left:14.6%;top:5.9%;width:13px;height:6px;color:var(--text-3);opacity:0.62;--d:17.7s;--delay:-5.9s;--dx:24px;--dy:-12px;--r:9.2deg;--r2:-13.6deg"></i>
+      <i style="left:54.2%;top:24.0%;width:18px;height:8px;color:var(--acid);opacity:0.71;--d:14.7s;--delay:-5.4s;--dx:-17px;--dy:-2px;--r:-5.8deg;--r2:3.0deg"></i>
+      <i style="left:50.2%;top:74.8%;width:15px;height:7px;color:var(--text-3);opacity:0.77;--d:11.2s;--delay:-2.5s;--dx:-8px;--dy:14px;--r:5.8deg;--r2:3.2deg"></i>
+      <i style="left:51.3%;top:42.1%;width:22px;height:10px;color:var(--violet);opacity:0.65;--d:23.2s;--delay:-2.6s;--dx:-26px;--dy:-4px;--r:1.5deg;--r2:5.2deg"></i>
+      <i style="left:85.4%;top:48.7%;width:9px;height:4px;color:var(--signal);opacity:0.52;--d:23.1s;--delay:-11.9s;--dx:18px;--dy:20px;--r:4.2deg;--r2:10.0deg"></i>
+      <i style="left:37.6%;top:36.1%;width:26px;height:11px;color:var(--text-3);opacity:0.40;--d:15.4s;--delay:-16.6s;--dx:-22px;--dy:-1px;--r:9.4deg;--r2:5.4deg"></i>
+  </div>
+
+  <div class="wrap">
+    <div class="foot-base">
+      <span>Built by hand, mostly after dark</span>
+      <span>&copy; 2026 Howard Huang</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* case board — string the pins together, then draw the thread in */
+(function(){
+  var board = document.getElementById('board');
+  if (!board) return;
+  var svg  = board.querySelector('.threads');
+  var line = svg && svg.querySelector('path');
+  if (!line) return;
+
+  function draw(){
+    var b = board.getBoundingClientRect();
+    if (!b.width) return;
+    var pins = board.querySelectorAll('.pin');
+    if (pins.length < 2) return;
+    var pts = [];
+    for (var i = 0; i < pins.length; i++){
+      var r = pins[i].getBoundingClientRect();
+      pts.push([ r.left + r.width / 2 - b.left, r.top + r.height / 2 - b.top ]);
+    }
+    /* string sags between pins instead of running taut */
+    var d = 'M' + pts[0][0].toFixed(1) + ' ' + pts[0][1].toFixed(1);
+    for (var j = 1; j < pts.length; j++){
+      var a = pts[j - 1], c = pts[j];
+      var dx = c[0] - a[0], dy = c[1] - a[1];
+      var sag = Math.min(Math.sqrt(dx * dx + dy * dy) * 0.11, 46);
+      d += ' Q' + ((a[0] + c[0]) / 2).toFixed(1) + ' ' +
+                  ((a[1] + c[1]) / 2 + sag).toFixed(1) + ' ' +
+                  c[0].toFixed(1) + ' ' + c[1].toFixed(1);
+    }
+    svg.setAttribute('viewBox', '0 0 ' + b.width.toFixed(1) + ' ' + b.height.toFixed(1));
+    line.setAttribute('d', d);
+    line.style.setProperty('--len', line.getTotalLength().toFixed(0));
+    board.classList.add('threaded');
+  }
+
+  if (document.readyState === 'complete') draw();
+  else addEventListener('load', draw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+
+  var t;
+  addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(draw, 140); }, { passive:true });
+})();
+</script>
+
+<script>
+/* missing image → labelled placeholder; a missing Spotify-today screenshot hides that comparison entirely */
+window.spPlaceholder = function(img){
+  var rb = img.closest('.sp-reveal-body');
+  if (rb){
+    var btn = rb.previousElementSibling;
+    if (btn && btn.classList.contains('sp-reveal')) btn.remove();
+    rb.remove(); return;
+  }
+  var kind = img.dataset.kind || 'wide', d = document.createElement('div');
+  if (kind === 'avatar'){ d.className = 'sp-avatar-ph'; d.innerHTML = (img.dataset.initials || '') + '<span>PHOTO</span>'; }
+  else { d.className = 'sp-ph sp-ph-' + kind; d.innerHTML = '<span class="sp-ph-k">PLACEHOLDER</span><b>' + img.dataset.label + '</b>'; }
+  img.replaceWith(d);
+};
+(window.__spMissing||[]).forEach(function(i){ if (i.isConnected) spPlaceholder(i); });
+(function(){
+  var root = document.querySelector('.sp'); if (!root) return;
+  var head = document.querySelector('.site-head');
+  var nav  = root.querySelector('.sp-nav');
+  var btns = nav ? [].slice.call(nav.querySelectorAll('button')) : [];
+  var targets = btns.map(function(b){ return document.getElementById(b.dataset.go); });
+  var off = function(){ return (head ? head.offsetHeight : 0) + (nav ? nav.offsetHeight : 0) + 10; };
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function go(id){
+    var t = document.getElementById(id); if (!t) return;
+    var y = id === 'sp-top' ? root.getBoundingClientRect().top + scrollY - 90
+                            : t.getBoundingClientRect().top + scrollY - off();
+    scrollTo({ top:y, behavior: reduce ? 'auto' : 'smooth' });
+  }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ go(b.dataset.go); }); });
+  [].forEach.call(root.querySelectorAll('.sp-process [data-go]'), function(el){
+    el.addEventListener('click', function(){ go(el.dataset.go); });
+    el.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(el.dataset.go); } });
+  });
+
+  var raf = null;
+  function sync(){
+    raf = null;
+    var y = off() + 30, on = 0;
+    targets.forEach(function(t, i){ if (t && t.getBoundingClientRect().top <= y) on = i; });
+    btns.forEach(function(b, i){ b.classList.toggle('on', i === on); });
+    var act = btns[on], track = nav && nav.firstElementChild;
+    if (act && track) track.scrollLeft = act.offsetLeft - track.offsetLeft - 16;
+  }
+  addEventListener('scroll', function(){ if (!raf) raf = requestAnimationFrame(sync); }, { passive:true });
+  sync();
+
+  /* Spotify-today screenshots are optional: if they aren't in assets/work yet, drop both comparison toggles */
+  (function(){
+    var t = new Image();
+    t.onerror = function(){
+      [].forEach.call(root.querySelectorAll('.sp-reveal'), function(btn){
+        var body = btn.nextElementSibling;
+        if (body && body.querySelector('.sp-orig, .sp-compare')){ body.remove(); btn.remove(); }
+      });
+    };
+    t.src = 'assets/work/spotify-orig-1.png';
+  })();
+
+  [].forEach.call(root.querySelectorAll('.sp-reveal'), function(btn){
+    btn.addEventListener('click', function(){
+      var body = btn.nextElementSibling, open = !body.classList.contains('open');
+      body.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.querySelector('.lbl').textContent = open ? btn.dataset.hide : btn.dataset.show;
+    });
+  });
+
+  /* lightbox — flow maps open at natural size and pan; phone screens fit the height */
+  var zoom = document.createElement('div');
+  zoom.className = 'sp-zoom'; zoom.setAttribute('role','dialog'); zoom.setAttribute('aria-modal','true');
+  zoom.innerHTML = '<div class="sp-zoom-bar"><span class="t"></span><span class="h">SCROLL TO PAN</span><button type="button" aria-label="Close">CLOSE ✕</button></div><div class="sp-zoom-body"><img alt=""></div>';
+  document.body.appendChild(zoom);
+  var zb = zoom.querySelector('.sp-zoom-body'), zi = zoom.querySelector('img');
+  function shut(){ zoom.classList.remove('open'); document.documentElement.style.overflow = ''; }
+  function open(src, title, tall){
+    zoom.classList.toggle('tall', !!tall);
+    zi.src = src; zoom.querySelector('.t').textContent = (title || '').toUpperCase();
+    zb.scrollLeft = 0; zb.scrollTop = 0;
+    zoom.classList.add('open'); document.documentElement.style.overflow = 'hidden';
+    zoom.querySelector('button').focus({ preventScroll:true });
+  }
+  zoom.querySelector('button').addEventListener('click', shut);
+  zoom.addEventListener('click', function(e){ if (e.target === zoom || e.target === zb) shut(); });
+  addEventListener('keydown', function(e){ if (e.key === 'Escape' && zoom.classList.contains('open')) shut(); });
+  zb.addEventListener('wheel', function(e){
+    if (!zoom.classList.contains('tall') && Math.abs(e.deltaY) > Math.abs(e.deltaX) && zb.scrollWidth > zb.clientWidth){
+      zb.scrollLeft += e.deltaY; e.preventDefault();
+    }
+  }, { passive:false });
+  [].forEach.call(root.querySelectorAll('[data-zoom]'), function(f){
+    f.addEventListener('click', function(){ open(f.dataset.zoom, f.dataset.title, false); });
+  });
+  root.addEventListener('click', function(e){
+    var im = e.target.closest && e.target.closest('.sp-sc-media .sp-shot, .sp-orig .sp-shot, .sp-compare .sp-shot');
+    if (im) open(im.getAttribute('src'), im.dataset.label, true);
+  });
+
+  [].forEach.call(root.querySelectorAll('video'), function(v){ v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function(){}); });
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
