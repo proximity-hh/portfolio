@@ -5,10 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Howard Huang — design &amp; development</title>
 <meta name="description" content="Howard Huang — Computer Science student at Wilfrid Laurier working where engineering and design overlap. Selected UX and full-stack work.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Howard Huang">
+<meta property="og:title" content="Howard Huang — design & development">
+<meta property="og:description" content="UX/UI and full-stack portfolio — case studies, a pixel-art Batcave, and the work in between.">
+<meta property="og:url" content="https://hhuang.ca/">
+<meta property="og:image" content="https://hhuang.ca/assets/ui/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="黃翔晧 — Howard Huang, UX/UI and product design portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hhuang.ca/assets/ui/og-card.jpg">
 <script>try{if(sessionStorage.getItem('batwipe')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('bat-in')}catch(e){}</script>
-<link rel="stylesheet" href="assets/site.css">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/ui/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/ui/favicon-180.png">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
@@ -44,7 +55,7 @@
         <h1 class="cjk" lang="zh-Hant" title="Howard Huang">黃翔晧</h1>
         <p>A designer who builds</p>
         <dl class="facts">
-          <div><dt>Practice</dt><dd>UX / UI &middot; Poduct Design</dd></div>
+          <div><dt>Practice</dt><dd>UX / UI &middot; Product Design</dd></div>
           <div><dt>Last seen</dt><dd>Waterloo, ON</dd></div>
           <div><dt>Reading</dt><dd>CS, Wilfrid Laurier &rsquo;26</dd></div>
         </dl>
@@ -73,7 +84,7 @@
           <li>Wireframing</li>
           <li>Usability testing</li>
           <li>UI design</li>
-          <li>Protoytyping</li>
+          <li>Prototyping</li>
           <li>Full-stack design</li>
         </ul>
       </article>
@@ -84,48 +95,50 @@
   </div>
 
   <section id="work">
-    <div class="wrap">
+    <div class="wrap wide">
       <div class="sec-head">
         <h2 class="sec-title">Selected work</h2>
       </div>
 
-      <div class="cards">
+      <div class="cards wall">
 
-        <a class="card feature" href="npo-connect.html">
-          <span class="cover cover-swap cover-npo">
-            <img src="assets/work/npo-connect-cover.jpg" alt="NPO Connect" loading="lazy">
-            <video src="assets/work/npo-connect-flow.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
-          </span>
-          <span class="body">
+        <div class="wall-col">
+          <a class="card" href="npo-connect.html">
+            <span class="cover cover-swap cover-npo tall">
+              <img src="assets/work/npo-connect-cover.jpg" alt="NPO Connect" loading="lazy">
+              <video src="assets/work/npo-connect-flow.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
+            </span>
             <span class="meta"><span>Case study</span> &middot; <span>2024</span></span>
             <h3>NPO Connect</h3>
             <p>Nonprofits run on scattered spreadsheets and email threads. One workspace
                instead &mdash; tested with three volunteers, then redesigned where the
                testing said so.</p>
             <span class="go">Read the case study &rarr;</span>
-          </span>
-        </a>
+          </a>
+        </div>
 
-        <a class="card" href="spotify.html">
-          <span class="cover cover-swap cover-spotify">
-            <img src="assets/work/spotify-cover.jpg" alt="Spotify" loading="lazy">
-            <video src="assets/work/spotify-flow.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
-          </span>
-          <span class="meta"><span>Case study</span> &middot; <span>2026</span></span>
-          <h3>Spotify Userflow Redesign</h3>
-          <p>Moving the payoff in front of the ask &mdash; a playlist built from your
-             taste first, the account second.</p>
-          <span class="go">Read the case study &rarr;</span>
-        </a>
+        <div class="wall-col">
+          <a class="card" href="spotify.html">
+            <span class="cover cover-swap cover-spotify">
+              <img src="assets/work/spotify-cover.jpg" alt="Spotify" loading="lazy">
+              <video src="assets/work/spotify-flow.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
+            </span>
+            <span class="meta"><span>Case study</span> &middot; <span>2026</span></span>
+            <h3>Spotify Userflow Redesign</h3>
+            <p>Moving the payoff in front of the ask &mdash; a playlist built from your
+               taste first, the account second.</p>
+            <span class="go">Read the case study &rarr;</span>
+          </a>
 
-        <span class="card">
-          <span class="cover cover-propr"><img src="assets/work/propr-cover.png" alt="Propr" loading="lazy"></span>
-          <span class="meta"><span>Full-stack</span> &middot; <span class="state">In progress</span></span>
-          <h3>Propr</h3>
-          <p>A projection model on every player in the NBA, NFL, and NHL, filtered down to the ones worth a look. &mdash;
-             Recent form, matchups, and injuries weighed against live odds, so only the
-             good props make the board.</p>
-        </span>
+          <span class="card">
+            <span class="cover cover-propr"><img src="assets/work/propr-cover.png" alt="Propr" loading="lazy"></span>
+            <span class="meta"><span>Full-stack</span> &middot; <span class="state">In progress</span></span>
+            <h3>Propr</h3>
+            <p>A projection model on every player in the NBA, NFL and NHL, filtered down to
+               the ones worth a look &mdash; recent form, matchups and injuries weighed against
+               live odds, so only the good props make the board.</p>
+          </span>
+        </div>
 
       </div>
     </div>
@@ -163,7 +176,7 @@
         <h4>Say hi</h4>
         <ul>
           <li><a href="mailto:Howardh0620@gmail.com">Email</a></li>
-          <li><a href="#" data-link="linkedin">LinkedIn</a></li>
+          <li><a href="https://www.linkedin.com/in/howard-huang0620/" target="_blank" rel="noopener" data-link="linkedin">LinkedIn</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -171,7 +184,7 @@
         <ul>
           <li><a href="index.html">Work</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="https://www.linkedin.com/in/howard-huang0620/" target="_blank" rel="noopener" data-link="linkedin">LinkedIn</a></li>
+          <li><a href="batcave.html" data-bat>Batcave</a></li>
         </ul>
       </div>
     </div>
