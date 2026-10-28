@@ -2785,7 +2785,7 @@ function renderSpotifyCase(){
       <div class="sp-fix-row head"><span>Gap</span><span></span><span>Next</span></div>
       ${fixes.map(f => '<div class="sp-fix-row"><span class="g">' + f[0] + '</span><span class="a">→</span><span class="f">' + f[1] + '</span></div>').join('')}
     </div>
-    <div class="sp-ph-text" style="margin-top:14px"><p><b>What I’d do differently —</b> write one true, specific sentence here.</p></div>`);
+    <div class="sp-ph-text" style="margin-top:14px"><p><b>Thank you for reading :)</p></div>`);
 
   return '<div class="sp">' + hero + nav + research + synthesis + ideation + final + reflection + '</div>';
 }
@@ -3808,7 +3808,7 @@ const AUDIO = (function(){
   if (!cave || !theme || !click || !btn) {
     return { start(){}, ping(){}, tick(){} };  // no audio present - stay silent, don't throw
   }
-  const LVL = { cave: 0.62, theme: 0.21, click: 0.26, type: 0.15 };   // ambience leads, theme sits under it
+  const LVL = { cave: 0.22, theme: 0.21, click: 0.26, type: 0.15 };   // ambience leads, theme sits under it
   let on = true, started = false, ctx = null, noiseBuf = null, lastTick = 0;
 
   function fade(el, to, ms){
