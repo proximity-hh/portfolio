@@ -3808,7 +3808,7 @@ const AUDIO = (function(){
   if (!cave || !theme || !click || !btn) {
     return { start(){}, ping(){}, tick(){} };  // no audio present - stay silent, don't throw
   }
-  const LVL = { cave: 0.22, theme: 0.21, click: 0.26, type: 0.15 };   // ambience leads, theme sits under it
+  const LVL = { cave: 0.10, theme: 0.15, click: 0.25, type: 0.20 };   // ambience leads, theme sits under it
   let on = true, started = false, ctx = null, noiseBuf = null, lastTick = 0;
 
   function fade(el, to, ms){
