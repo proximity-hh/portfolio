@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Propr — product design case study · Howard Huang</title>
+<meta name="description" content="Designing and building Propr: a player-prop board that shows only the props worth a look, with lineup alerts, a live line explorer and a motion system built on one curve.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Howard Huang">
+<meta property="og:title" content="Propr — product design case study · Howard Huang">
+<meta property="og:description" content="Only the props worth a look — board UI, skeleton loading, lineup alerts and a live line explorer, rebuilt from the real components.">
+<meta property="og:url" content="https://hhuang.ca/propr.html">
+<meta property="og:image" content="https://hhuang.ca/assets/ui/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="黃翔晧 — Howard Huang, UX/UI and product design portfolio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hhuang.ca/assets/ui/og-card.jpg">
+<script>try{if(sessionStorage.getItem('batwipe')==='1'&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('bat-in')}catch(e){}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/ui/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/ui/favicon-180.png">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/propr-demos.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Howard Huang</a>
+    <nav class="nav">
+      <a href="index.html">Work</a>
+      <a href="about.html">About</a>
+      <a class="bat-toggle" href="batcave.html" data-bat><i class="bat" aria-hidden="true"></i>Batcave</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap case-hero">
+    <a class="back" href="index.html#work">&larr; All work</a>
+    <p class="eyebrow">Product design &amp; build &middot; 2026</p>
+    <h1>Only the props worth a look.</h1>
+    <p class="lede">A player-prop board that hides everything that doesn't clear the bar. Designed, built and run by me &mdash; live at <a href="https://propr.win" target="_blank" rel="noopener">propr.win</a>.</p>
+    <dl class="facts">
+      <div><dt>Role</dt><dd>Design, front end, model</dd></div>
+      <div><dt>Stack</dt><dd>React, Tailwind, FastAPI</dd></div>
+      <div><dt>Benchmarked</dt><dd>Linemate, sportsbooks</dd></div>
+      <div><dt>Status</dt><dd>Live, invite-only</dd></div>
+    </dl>
+    <div class="pr pr-hero-stage">
+      <div class="stage"><div class="stage-body" id="demo-hero"></div></div>
+      <p class="stage-cap">Every demo here is the real component, rebuilt from Propr's source. Sample slate.</p>
+    </div>
+  </div>
+
+  <div class="wrap case-body">
+
+    <section class="case-sec">
+      <span class="tag">Thinking</span>
+      <h2>From noise to a short list</h2>
+      <div class="think">
+        <div><span class="k">Problem</span><p>Books list hundreds of props a game. Research means three other tabs.</p></div>
+        <div><span class="k">Benchmark</span><p>Linemate shows trends but lists everything. Books are fast but never say "skip this".</p></div>
+        <div class="tbc-box"><span class="k">Insight</span><p>Bettors don't need more data. They need the noise cut.</p></div>
+        <div><span class="k">Bet</span><p>Projection, price and recent games on one row. Hide the rest.</p></div>
+      </div>
+      <p class="pull">How might a bettor see tonight's few worthwhile props &mdash; and know the second news changes one?</p>
+    </section>
+
+    <!-- ===================== the demos ===================== -->
+    <div class="pr">
+
+      <div class="demo stack">
+        <div class="demo-notes">
+          <div><span class="tag">01 &middot; Board UI</span><h2>Two views, one board</h2></div>
+          <div>
+            <p><b>Analytical</b> is a workstation: filters, news and a detail panel around the board. <b>Basic</b> is one column: pills on top, the last 10 games drawn out.</p>
+            <ul class="spec">
+              <li><span>Entrance</span><div>Rows fade up one after another</div></li>
+              <li><span>Select</span><div>Row lights up, detail panel follows</div></li>
+              <li><span>Switch</span><div>Pill slides to the new view</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="stage-bar"><div class="seg" id="board-view" role="group" aria-label="Board view"><button type="button" class="seg-btn" data-v="full">Analytical</button><button type="button" class="seg-btn" data-v="basic">Basic</button></div>
+            <span class="acts"><button type="button" class="ctl" id="board-replay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>Replay</button></span></div>
+          <div class="stage-body" id="demo-board"></div>
+        </div>
+      </div>
+
+      <div class="demo">
+        <div class="demo-notes">
+          <span class="tag">02 &middot; Skeleton loading</span>
+          <h2>The logo draws while the board builds</h2>
+          <p>No spinner. The mark draws its trend line; skeleton rows hold the layout so nothing jumps.</p>
+          <ul class="spec">
+            <li><span>Logo</span><div>Line draws, then the arrowhead</div></li>
+            <li><span>Shimmer</span><div>A steady sweep, no easing</div></li>
+            <li><span>Rows</span><div>Each placeholder a little fainter</div></li>
+            <li><span>Hand-off</span><div>Placeholders fade, rows rise in place</div></li>
+          </ul>
+        </div>
+        <div><div class="stage">
+          <div class="stage-bar"><span class="lbl">Loading state</span><span class="acts"><button type="button" class="ctl" id="skel-replay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>Replay</button></span></div>
+          <div class="stage-body" id="demo-skel" style="min-height:340px"></div>
+        </div></div>
+      </div>
+
+      <div class="demo stack">
+        <div class="demo-notes">
+          <div><span class="tag">03 &middot; Dynamic game bar</span><h2>Tonight's slate on a slow belt</h2></div>
+          <div>
+            <p>Too many games to fit? It scrolls itself. Hover to stop. Click to filter.</p>
+            <ul class="spec">
+              <li><span>Speed</span><div>More games, slower belt</div></li>
+              <li><span>Control</span><div>Pauses on hover and focus; Static in Settings</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="stage-bar"><span class="lbl">Hover to pause, click a game</span><span class="acts"><button type="button" class="ctl" id="games-static" aria-pressed="false">Static</button></span></div>
+          <div class="stage-body" id="demo-games"></div>
+        </div>
+      </div>
+
+      <div class="demo">
+        <div class="demo-notes">
+          <span class="tag">04 &middot; Lineup alerts</span>
+          <h2>News can't wait for a refresh</h2>
+          <p>Ranked by impact: ruled out first. "View props" jumps to the rows it touches.</p>
+          <ul class="spec">
+            <li><span>Enter</span><div>Slides in from the edge</div></li>
+            <li><span>Signal</span><div>One ping, colour by severity</div></li>
+            <li><span>Life</span><div>Draining bar, hover pauses</div></li>
+            <li><span>Stack</span><div>Three at most, the rest fold away</div></li>
+          </ul>
+        </div>
+        <div><div class="stage">
+          <div class="stage-bar" id="alerts-bar"><span class="lbl">Send news</span>
+            <span class="acts">
+              <button type="button" class="ctl" data-news="removed">Ruled out</button>
+              <button type="button" class="ctl" data-news="status">Status</button>
+              <button type="button" class="ctl" data-news="confirmed">Confirmed</button>
+              <button type="button" class="ctl" data-news="burst">Five at once</button>
+              <button type="button" class="ctl" data-news="sound" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg> Sound off</button>
+            </span></div>
+          <div class="stage-body" id="demo-alerts"></div>
+        </div></div>
+      </div>
+
+      <div class="demo">
+        <div class="demo-notes">
+          <span class="tag">05 &middot; Dynamic line adjustment</span>
+          <h2>Move the line, the pick re-prices</h2>
+          <p>Curve, bars, chance, price and value all follow. Off a posted line, odds become a labelled fair price.</p>
+          <ul class="spec">
+            <li><span>Line mark</span><div>Slides, never jumps</div></li>
+            <li><span>Bars</span><div>Recolour as the line moves</div></li>
+            <li><span>Numbers</span><div>Count up to the new value</div></li>
+            <li><span>Confirm</span><div>Tick draws once</div></li>
+          </ul>
+        </div>
+        <div><div class="stage">
+          <div class="stage-bar"><span class="lbl">Drag, step, flip to Under</span></div>
+          <div class="stage-body" id="demo-line"></div>
+        </div></div>
+      </div>
+
+      <div class="demo stack">
+        <div class="demo-notes">
+          <div><span class="tag">06 &middot; Sign-in with two-step email</span><h2>Invite-only, without the friction</h2></div>
+          <div>
+            <p>Password or Google, then a code by email every time. Access code on first sign-in only. The code field auto-submits at six digits.</p>
+            <ul class="spec">
+              <li><span>Steps</span><div>Each step fades up</div></li>
+              <li><span>Errors</span><div>Plain words and a small shake</div></li>
+              <li><span>Reward</span><div>Ten bars rise, the last clears the line</div></li>
+            </ul>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="stage-bar"><ol class="flow-steps" id="signup-steps">
+              <li data-s="signin"><i></i>Sign in</li><li data-s="code"><i></i>Email code</li><li data-s="access"><i></i>Access code</li><li data-s="terms"><i></i>Terms</li><li data-s="done"><i></i>In</li></ol>
+            <span class="acts"><button type="button" class="ctl" id="signup-replay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg>Start over</button></span></div>
+          <div class="stage-body" id="demo-signup">
+            <div class="signup">
+              <div class="auth" aria-live="polite"></div>
+              <div class="inbox"><header><b>Inbox</b><span class="count">0</span></header><div class="mail-list"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo stack">
+        <div class="demo-notes">
+          <div><span class="tag">07 &middot; Micro-interactions</span><h2>Small, and all the same speed</h2></div>
+          <div><p>Same curve everywhere. Nothing travels far.</p></div>
+        </div>
+        <div class="stage"><div class="stage-body">
+          <div class="micro" id="demo-micro">
+            <div class="mt"><div class="play"><button type="button" class="btn">Press me</button></div><h4>Press</h4><p>Gives a little under your finger</p></div>
+            <div class="mt"><div class="play"><button type="button" class="star" aria-pressed="false" aria-label="Star this pick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></button></div><h4>Star</h4><p>Pops, only when it turns on</p></div>
+            <div class="mt"><div class="play"><button type="button" class="btn" data-share>Share to Discord</button></div><h4>Confirm</h4><p>Tick draws its stroke</p></div>
+            <div class="mt"><div class="play"><div class="seg" role="group" aria-label="Board"><button type="button" class="seg-btn" data-v="trends">Trends</button><button type="button" class="seg-btn" data-v="edges">Edges</button><button type="button" class="seg-btn" data-v="saved">Saved</button></div></div><h4>Segment</h4><p>Pill measured from the labels</p></div>
+            <div class="mt"><div class="play" style="width:100%"><div class="tabs" role="tablist" style="width:100%"><button type="button" role="tab" aria-selected="true">Board</button><button type="button" role="tab" aria-selected="false">Players</button><button type="button" role="tab" aria-selected="false">Recap</button></div></div><h4>Tabs</h4><p>Underline glides, never jumps</p></div>
+            <div class="mt"><div class="play" style="width:100%"><div class="mini-card"><button type="button" aria-expanded="false"><span>How the projection is built</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button></div></div><h4>Reveal</h4><p>Fades up, chevron turns</p></div>
+          </div>
+        </div></div>
+      </div>
+
+    </div>
+    <!-- ===================== /demos ===================== -->
+
+    <section class="case-sec" style="padding-bottom:clamp(40px,7vh,80px)">
+      <a class="back" href="index.html#work" style="margin:0">&larr; All work</a>
+    </section>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <p class="creed">
+        It's not who I am underneath, but what I do that defines me.
+        <cite>Batman Begins, 2005</cite>
+      </p>
+      <div class="foot-col">
+        <h4>Say hi</h4>
+        <ul>
+          <li><a href="mailto:Howardh0620@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/howard-huang0620/" target="_blank" rel="noopener" data-link="linkedin">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Page</h4>
+        <ul>
+          <li><a href="index.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="batcave.html" data-bat>Batcave</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="swarm" aria-hidden="true">
+      <span class="swarm-hint">Grab a bat</span>
+      <i style="left:25.3%;top:33.4%;width:18px;height:8px;color:var(--text-3);opacity:0.79;--d:22.1s;--delay:-18.4s;--dx:-25px;--dy:9px;--r:7.7deg;--r2:-7.0deg"></i>
+      <i style="left:86.6%;top:13.3%;width:9px;height:4px;color:var(--acid);opacity:0.75;--d:16.7s;--delay:-2.0s;--dx:-11px;--dy:-20px;--r:6.5deg;--r2:-2.6deg"></i>
+      <i style="left:88.1%;top:66.8%;width:11px;height:5px;color:var(--ice);opacity:0.70;--d:12.1s;--delay:-12.4s;--dx:2px;--dy:-12px;--r:-10.3deg;--r2:13.2deg"></i>
+      <i style="left:20.9%;top:21.7%;width:9px;height:4px;color:var(--ice);opacity:0.75;--d:15.3s;--delay:-19.2s;--dx:8px;--dy:20px;--r:-8.3deg;--r2:12.3deg"></i>
+      <i style="left:19.7%;top:83.1%;width:22px;height:10px;color:var(--acid);opacity:0.46;--d:16.4s;--delay:-3.3s;--dx:-17px;--dy:-4px;--r:-12.2deg;--r2:-5.6deg"></i>
+      <i style="left:56.7%;top:52.9%;width:18px;height:8px;color:var(--text-3);opacity:0.48;--d:15.6s;--delay:-16.4s;--dx:4px;--dy:0px;--r:-8.8deg;--r2:-0.8deg"></i>
+      <i style="left:6.4%;top:84.0%;width:11px;height:5px;color:var(--signal);opacity:0.79;--d:16.4s;--delay:-8.1s;--dx:9px;--dy:6px;--r:-3.7deg;--r2:2.2deg"></i>
+      <i style="left:44.0%;top:62.0%;width:9px;height:4px;color:var(--crimson);opacity:0.80;--d:13.9s;--delay:-15.1s;--dx:26px;--dy:9px;--r:-4.4deg;--r2:-4.1deg"></i>
+      <i style="left:24.8%;top:42.0%;width:18px;height:8px;color:var(--crimson);opacity:0.69;--d:23.0s;--delay:-17.2s;--dx:-24px;--dy:7px;--r:12.5deg;--r2:-11.4deg"></i>
+      <i style="left:49.7%;top:33.7%;width:13px;height:6px;color:var(--ice);opacity:0.48;--d:24.9s;--delay:-10.9s;--dx:-7px;--dy:0px;--r:-5.4deg;--r2:8.4deg"></i>
+      <i style="left:15.1%;top:60.5%;width:22px;height:10px;color:var(--acid);opacity:0.38;--d:11.7s;--delay:-19.7s;--dx:8px;--dy:5px;--r:-13.1deg;--r2:6.7deg"></i>
+      <i style="left:79.5%;top:41.4%;width:13px;height:6px;color:var(--acid);opacity:0.38;--d:25.7s;--delay:-12.8s;--dx:25px;--dy:11px;--r:-4.6deg;--r2:-8.2deg"></i>
+      <i style="left:54.6%;top:14.9%;width:22px;height:10px;color:var(--acid);opacity:0.36;--d:17.5s;--delay:-3.0s;--dx:0px;--dy:-2px;--r:-10.0deg;--r2:11.8deg"></i>
+      <i style="left:82.0%;top:84.0%;width:18px;height:8px;color:var(--acid);opacity:0.80;--d:21.3s;--delay:-6.4s;--dx:-9px;--dy:-2px;--r:-0.8deg;--r2:11.3deg"></i>
+      <i style="left:36.8%;top:85.0%;width:9px;height:4px;color:var(--ice);opacity:0.63;--d:18.5s;--delay:-6.8s;--dx:-21px;--dy:11px;--r:-6.4deg;--r2:7.9deg"></i>
+      <i style="left:48.8%;top:9.2%;width:26px;height:11px;color:var(--violet);opacity:0.66;--d:21.0s;--delay:-15.2s;--dx:-3px;--dy:15px;--r:5.7deg;--r2:-6.1deg"></i>
+      <i style="left:26.2%;top:84.4%;width:15px;height:7px;color:var(--text-3);opacity:0.45;--d:25.2s;--delay:-13.0s;--dx:11px;--dy:-20px;--r:-0.7deg;--r2:7.7deg"></i>
+      <i style="left:64.8%;top:42.0%;width:13px;height:6px;color:var(--crimson);opacity:0.64;--d:23.0s;--delay:-7.0s;--dx:15px;--dy:2px;--r:6.7deg;--r2:9.2deg"></i>
+      <i style="left:88.6%;top:18.1%;width:13px;height:6px;color:var(--text-3);opacity:0.53;--d:16.5s;--delay:-6.7s;--dx:-17px;--dy:13px;--r:13.4deg;--r2:-8.4deg"></i>
+      <i style="left:90.1%;top:43.1%;width:13px;height:6px;color:var(--text-3);opacity:0.34;--d:21.1s;--delay:-8.3s;--dx:13px;--dy:17px;--r:0.5deg;--r2:12.2deg"></i>
+      <i style="left:60.3%;top:67.5%;width:13px;height:6px;color:var(--text-3);opacity:0.44;--d:25.9s;--delay:-3.9s;--dx:11px;--dy:8px;--r:3.5deg;--r2:-8.9deg"></i>
+      <i style="left:66.2%;top:55.7%;width:26px;height:11px;color:var(--signal);opacity:0.81;--d:25.7s;--delay:-3.3s;--dx:-18px;--dy:-13px;--r:-5.1deg;--r2:-8.9deg"></i>
+      <i style="left:53.1%;top:38.1%;width:11px;height:5px;color:var(--violet);opacity:0.50;--d:20.2s;--delay:-11.8s;--dx:-11px;--dy:3px;--r:-14.0deg;--r2:-2.6deg"></i>
+      <i style="left:82.3%;top:75.0%;width:13px;height:6px;color:var(--text-3);opacity:0.73;--d:16.6s;--delay:-0.7s;--dx:13px;--dy:-1px;--r:-11.3deg;--r2:1.3deg"></i>
+      <i style="left:91.4%;top:28.0%;width:13px;height:6px;color:var(--violet);opacity:0.73;--d:17.3s;--delay:-16.3s;--dx:15px;--dy:14px;--r:-3.7deg;--r2:-10.0deg"></i>
+      <i style="left:37.4%;top:43.1%;width:18px;height:8px;color:var(--ice);opacity:0.80;--d:20.1s;--delay:-7.0s;--dx:16px;--dy:-20px;--r:-3.3deg;--r2:-4.9deg"></i>
+      <i style="left:52.2%;top:30.7%;width:18px;height:8px;color:var(--crimson);opacity:0.50;--d:17.5s;--delay:-4.5s;--dx:-8px;--dy:10px;--r:13.2deg;--r2:-3.4deg"></i>
+      <i style="left:87.8%;top:52.9%;width:26px;height:11px;color:var(--violet);opacity:0.69;--d:15.5s;--delay:-5.0s;--dx:-25px;--dy:0px;--r:12.5deg;--r2:-5.4deg"></i>
+      <i style="left:14.6%;top:5.9%;width:13px;height:6px;color:var(--text-3);opacity:0.62;--d:17.7s;--delay:-5.9s;--dx:24px;--dy:-12px;--r:9.2deg;--r2:-13.6deg"></i>
+      <i style="left:54.2%;top:24.0%;width:18px;height:8px;color:var(--acid);opacity:0.71;--d:14.7s;--delay:-5.4s;--dx:-17px;--dy:-2px;--r:-5.8deg;--r2:3.0deg"></i>
+      <i style="left:50.2%;top:74.8%;width:15px;height:7px;color:var(--text-3);opacity:0.77;--d:11.2s;--delay:-2.5s;--dx:-8px;--dy:14px;--r:5.8deg;--r2:3.2deg"></i>
+      <i style="left:51.3%;top:42.1%;width:22px;height:10px;color:var(--violet);opacity:0.65;--d:23.2s;--delay:-2.6s;--dx:-26px;--dy:-4px;--r:1.5deg;--r2:5.2deg"></i>
+      <i style="left:85.4%;top:48.7%;width:9px;height:4px;color:var(--signal);opacity:0.52;--d:23.1s;--delay:-11.9s;--dx:18px;--dy:20px;--r:4.2deg;--r2:10.0deg"></i>
+      <i style="left:37.6%;top:36.1%;width:26px;height:11px;color:var(--text-3);opacity:0.40;--d:15.4s;--delay:-16.6s;--dx:-22px;--dy:-1px;--r:9.4deg;--r2:5.4deg"></i>
+  </div>
+
+  <div class="wrap">
+    <div class="foot-base">
+      <span>Built by hand, mostly after dark</span>
+      <span>&copy; 2026 Howard Huang</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* case board — string the pins together, then draw the thread in */
+(function(){
+  var board = document.getElementById('board');
+  if (!board) return;
+  var svg  = board.querySelector('.threads');
+  var line = svg && svg.querySelector('path');
+  if (!line) return;
+
+  function draw(){
+    var b = board.getBoundingClientRect();
+    if (!b.width) return;
+    var pins = board.querySelectorAll('.pin');
+    if (pins.length < 2) return;
+    var pts = [];
+    for (var i = 0; i < pins.length; i++){
+      var r = pins[i].getBoundingClientRect();
+      pts.push([ r.left + r.width / 2 - b.left, r.top + r.height / 2 - b.top ]);
+    }
+    /* string sags between pins instead of running taut */
+    var d = 'M' + pts[0][0].toFixed(1) + ' ' + pts[0][1].toFixed(1);
+    for (var j = 1; j < pts.length; j++){
+      var a = pts[j - 1], c = pts[j];
+      var dx = c[0] - a[0], dy = c[1] - a[1];
+      var sag = Math.min(Math.sqrt(dx * dx + dy * dy) * 0.11, 46);
+      d += ' Q' + ((a[0] + c[0]) / 2).toFixed(1) + ' ' +
+                  ((a[1] + c[1]) / 2 + sag).toFixed(1) + ' ' +
+                  c[0].toFixed(1) + ' ' + c[1].toFixed(1);
+    }
+    svg.setAttribute('viewBox', '0 0 ' + b.width.toFixed(1) + ' ' + b.height.toFixed(1));
+    line.setAttribute('d', d);
+    line.style.setProperty('--len', line.getTotalLength().toFixed(0));
+    board.classList.add('threaded');
+  }
+
+  if (document.readyState === 'complete') draw();
+  else addEventListener('load', draw);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
+
+  var t;
+  addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(draw, 140); }, { passive:true });
+})();
+</script>
+
+<script src="assets/site.js"></script>
+<script src="assets/propr-demos.js"></script>
+</body>
+</html>
