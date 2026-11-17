@@ -1463,3 +1463,6 @@ html.bat-cursor, html.bat-cursor *{ cursor:none !important; }
   .ab-photos{ grid-template-columns:1fr; }
   .ab-photos .snap-a{ margin-right:18px; } .ab-photos .snap-b{ margin-left:18px; }
 }
+
+/* case hero keeps the page gutter */
+.wrap.case-hero{ padding-left:var(--gut); padding-right:var(--gut); }
