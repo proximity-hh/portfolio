@@ -1372,6 +1372,9 @@ html.bat-cursor, html.bat-cursor *{ cursor:none !important; }
 .card .cover.cover-npo{ background:#7B6BCF; }
 .card .cover.cover-spotify{ background:#1ED760; }
 .card .cover.cover-propr{ background:#0A0A0A; }
+.card .cover.cover-orbit{ background:#040112; }
+div.card{ cursor:default; outline:none; }
+div.card:focus-visible .cover{ box-shadow:0 0 0 2px var(--signal); }
 .card .cover.cover-propr img{ object-fit:contain; padding:0 6%; }
 .card:hover .cover.cover-propr img{ transform:scale(1.03); }
 
