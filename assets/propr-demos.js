@@ -500,7 +500,7 @@
     const ORDER = ["signin", "code", "access", "terms", "done"];
     const mark = k => $$("li", steps).forEach(li => { const i = ORDER.indexOf(li.dataset.s), j = ORDER.indexOf(k);
       li.dataset.state = i < j ? "done" : i === j ? "on" : ""; });
-    const view = (k, html) => { mark(k); card.innerHTML = `<div class="auth-step">${html}</div>`; const f = $("input", card); if (f && !reduce) f.focus({ preventScroll:true }); };
+    const view = (k, html) => { mark(k); card.innerHTML = `<div class="auth-step">${html}</div>`; const f = $("input", card);  };
     const fail = msg => { const e = $(".err", card); e.textContent = msg; e.classList.remove("err-in"); void e.offsetWidth; e.classList.add("err-in");
       const i = $("input.code, input", card); if (i){ i.classList.remove("shake"); void i.offsetWidth; i.classList.add("shake"); } };
     const wait = (btn, ms, fn) => { btn.disabled = true; const t = btn.textContent; btn.innerHTML = `<span class="spin" aria-hidden="true"></span>${t}`; setTimeout(() => { btn.disabled = false; btn.textContent = t; fn(); }, reduce ? 0 : ms); };
@@ -543,8 +543,8 @@
         <div class="row-links"><button class="pr-link" type="button" data-again>Send a new code</button><button class="pr-link" type="button" data-out>Not you? Start over</button></div>
         <p class="hint">Copy the code from the email on the right, or <button type="button" class="pr-link inline" data-fill>fill it in for me</button>.</p>`);
       const inp = $("#su-code", card);
-      inp.addEventListener("input", () => { inp.value = inp.value.replace(/[^0-9 ]/g, ""); if (inp.value.replace(/\s/g, "").length === 6) $("form", card).requestSubmit(); });
-      $("[data-fill]", card).addEventListener("click", () => { let i = 0; inp.value = ""; const t = setInterval(() => { inp.value += code[i++]; if (i === 6){ clearInterval(t); $("form", card).requestSubmit(); } }, reduce ? 0 : 70); });
+      inp.addEventListener("input", () => { inp.value = inp.value.replace(/[^0-9 ]/g, ""); if (inp.value.replace(/\s/g, "").length === 6) $("form", card).dispatchEvent(new Event("submit", { cancelable:true, bubbles:true })); });
+      $("[data-fill]", card).addEventListener("click", () => { let i = 0; inp.value = ""; const t = setInterval(() => { inp.value += code[i++]; if (i === 6){ clearInterval(t); $("form", card).dispatchEvent(new Event("submit", { cancelable:true, bubbles:true })); } }, reduce ? 0 : 70); });
       $("[data-again]", card).addEventListener("click", e => { sendCode(); e.target.disabled = true; $(".err", card).textContent = "A new code is on its way. The old one no longer works."; setTimeout(() => { e.target.disabled = false; }, 30000); });
       $("[data-out]", card).addEventListener("click", signin);
       $("form", card).addEventListener("submit", e => { e.preventDefault();

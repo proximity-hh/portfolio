@@ -15,11 +15,18 @@
       if (on && !busy){ busy = true; (async function(){ while (on){ await run(); } busy = false; })(); }
     }, { threshold: .35 }).observe(el);
   }
+  // demos never shrink once they've grown, so the page below them never moves
+  if (window.ResizeObserver){
+    var ro = new ResizeObserver(function(es){ es.forEach(function(e){ var el = e.target, h = Math.ceil(el.getBoundingClientRect().height), m = +(el.dataset.maxh || 0);
+      if (h > m){ el.dataset.maxh = h; el.style.minHeight = h + 'px'; } }); });
+    $$('.pr .stage-body').forEach(function(el){ ro.observe(el); });
+  }
+  var narrow = matchMedia('(max-width: 760px)').matches;
   // 01 board: switch views, pick a prop
   whenVisible($('#demo-board'), async function(){
     var b = $('#board-view'); click($('[data-v="full"]', b)); await sleep(1600);
     var rows = $$('#demo-board .row'); click(rows[1]); await sleep(2600); click(rows[3]); await sleep(2600);
-    click($('[data-v="basic"]', b)); await sleep(4200);
+    if (!narrow){ click($('[data-v="basic"]', b)); await sleep(4200); }
   });
   // 02 skeleton: replay the load
   whenVisible($('#demo-skel'), async function(){ await sleep(5200); click($('#skel-replay')); });
@@ -46,9 +53,9 @@
     var card = $('#demo-signup .auth');
     await sleep(1500); click($('[data-google]', card)); await sleep(2600);
     click($('[data-fill]', card)); await sleep(2800);
-    var acc = $('[data-fill]', card); if (acc){ click(acc); await sleep(900); var f = $('form', card); if (f) f.requestSubmit(); }
+    var acc = $('[data-fill]', card); if (acc){ click(acc); await sleep(900); var f = $('form', card); if (f) f.dispatchEvent(new Event("submit", { cancelable:true, bubbles:true })); }
     await sleep(2200);
-    var box = $('input[type="checkbox"]', card); if (box){ box.checked = true; box.dispatchEvent(new Event('change', { bubbles:true })); await sleep(900); var f2 = $('form', card); if (f2) f2.requestSubmit(); }
+    var box = $('input[type="checkbox"]', card); if (box){ box.checked = true; box.dispatchEvent(new Event('change', { bubbles:true })); await sleep(900); var f2 = $('form', card); if (f2) f2.dispatchEvent(new Event("submit", { cancelable:true, bubbles:true })); }
     await sleep(5200); click($('[data-restart]', card)); await sleep(1200);
   });
   // 07 micro-interactions: one after another

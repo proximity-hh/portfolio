@@ -518,3 +518,8 @@
 .hmw p{ margin:0 !important; font-family:var(--serif); font-size:clamp(22px,2.2vw,30px); line-height:1.3; color:var(--text) !important; max-width:none; }
 @media (max-width:980px){ .think.flow > .step:nth-child(3)::before{ display:none; } }
 @media (max-width:560px){ .think.flow > .step::before{ display:none; } .hmw{ grid-template-columns:1fr; } }
+/* the demos change height as they play; never let the page scroll to follow them */
+.pr .stage, .pr .stage *{ overflow-anchor:none; }
+#demo-signup{ min-height:640px; }
+@media (max-width:760px){ #demo-signup{ min-height:980px; } #demo-board{ min-height:560px; } }
+@media (max-width:760px){ #demo-skel{ min-height:560px !important; } #demo-signup{ min-height:1280px; } #demo-line{ min-height:900px; } }
